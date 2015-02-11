@@ -1,8 +1,16 @@
 {
   "name": "lax",
   "version": "0.0.1",
-  "description": "A library for lazy data manipulation.",
+  "description": "A JS library for lazy data manipulation.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jmcriffey/lax.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jmcriffey/lax/issues"
+  },
+  "homepage": "https://github.com/jmcriffey/lax",
   "scripts": {
     "lint": "jshint src",
     "test": "npm run lint && npm run unit",
