@@ -1,0 +1,22 @@
+{
+  "browser": true,
+  "curly": true,
+  "eqeqeq": true,
+  "esnext": true,
+  "globals": {
+    "assert": true,
+    "mock": true,
+    "React": true,
+    "stub": true
+  },
+  "immed": true,
+  "indent": 4,
+  "maxcomplexity": 10,
+  "maxlen": 120,
+  "mocha": true,
+  "node": true,
+  "noempty": true,
+  "undef": true,
+  "unused": true,
+  "trailing": true
+}
