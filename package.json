@@ -1,6 +1,6 @@
 {
   "name": "lax",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A modular JS library for lazy data manipulation.",
   "main": "index.js",
   "repository": {
@@ -27,6 +27,7 @@
     "chai": "^2.0.0",
     "jshint": "^2.6.0",
     "mocha": "^2.1.0",
+    "rimraf": "^2.2.8",
     "traceur": "0.0.84"
   }
 }
