@@ -17,17 +17,36 @@ describe('filter', () => {
 
     });
 
-    it('should filter a Map', () => {
+    it('should filter a map', () => {
         let xs = new Map([[1, 1], [2, 2], [3,3], [4, 4]]);
         let result = filter(xs, x => x[0] > 2);
 
         assert.deepEqual(Array.from(result), [[3, 3], [4, 4]]);
     });
 
-    it('should filter a Set', () => {
+    it('should filter a set', () => {
         let xs = new Set([1, 2, 3, 4]);
         let result = filter(xs, x => x > 2);
 
         assert.deepEqual(Array.from(result), [3, 4]);
+    });
+
+    it('should pass the correct arguments', () => {
+        let xs = [1, 2, 3, 4];
+        let values = [];
+        let indices = [];
+        let arrays = [];
+        let result = filter(xs, (x, i, xs) => {
+            values.push(x);
+            indices.push(i);
+            arrays.push(xs);
+
+            return true;
+        });
+
+        assert.deepEqual(Array.from(result), [1, 2, 3, 4]);
+        assert.deepEqual(values, [1, 2, 3, 4]);
+        assert.deepEqual(indices, [0, 1, 2, 3]);
+        assert.deepEqual(arrays, [xs, xs, xs, xs]);
     });
 });
