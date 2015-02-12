@@ -10,7 +10,7 @@ describe('pluck', () => {
     });
 
     it('should pluck from a map', () => {
-        let xs = new Map([['key1', 'value1'], ['key2', 'value2']])
+        let xs = new Map([['key1', 'value1'], ['key2', 'value2']]);
         let result = pluck(xs, 0);
 
         assert.deepEqual(Array.from(result), ['key1', 'key2']);

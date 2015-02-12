@@ -13,8 +13,7 @@ describe('takewhile', () => {
         let xs = 'abcdabcd';
         let result = takewhile(xs, x => x !== 'c');
 
-        assert.deepEqual(Array.from(result), ['a', 'b'])
-
+        assert.deepEqual(Array.from(result), ['a', 'b']);
     });
 
     it('should take from a map', () => {
@@ -26,7 +25,7 @@ describe('takewhile', () => {
 
     it('should take from a set', () => {
         let xs = new Set([1, 2, 2, 3, 1]);
-        let result = takewhile(xs, (x, i) => x < 3);
+        let result = takewhile(xs, x => x < 3);
 
         assert.deepEqual(Array.from(result), [1, 2]);
     });

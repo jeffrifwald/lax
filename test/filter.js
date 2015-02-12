@@ -13,8 +13,7 @@ describe('filter', () => {
         let xs = 'abcd';
         let result = filter(xs, x => x === 'c');
 
-        assert.deepEqual(Array.from(result), ['c'])
-
+        assert.deepEqual(Array.from(result), ['c']);
     });
 
     it('should filter a map', () => {

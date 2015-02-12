@@ -1,0 +1,29 @@
+'use strict';
+
+var fs = require('fs');
+
+
+var path = 'src';
+var indexImports = [];
+var indexExports = [];
+var indexSrc = '';
+
+fs.readdir(path, function(err, files) {
+    files.forEach(function(file) {
+        var srcPath = path + '/' + file;
+        var varName = file.replace('.js', '');
+
+        indexImports.push('import ' + varName + ' from ' + '\'./' + srcPath + '\';');
+        indexExports.push('\t' + varName);
+
+        fs.readFile(srcPath, {encoding: 'utf-8'}, function(err, content) {
+            fs.writeFile(file, content, {encoding: 'utf-8'});
+        });
+    });
+
+    indexSrc =
+        indexImports.join('\n') + '\n' + '\n' + '\n' +
+        'export default {\n' + indexExports.join(',\n') + '\n};\n';
+
+    fs.writeFile('index.js', indexSrc, {encoding: 'utf-8'});
+});

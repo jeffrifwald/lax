@@ -13,8 +13,7 @@ describe('map', () => {
         let xs = 'abcd';
         let result = map(xs, x => x + 'z');
 
-        assert.deepEqual(Array.from(result), ['az', 'bz', 'cz', 'dz'])
-
+        assert.deepEqual(Array.from(result), ['az', 'bz', 'cz', 'dz']);
     });
 
     it('should map a map', () => {
