@@ -20,15 +20,6 @@ describe('forEach', () => {
         assert.deepEqual(result, ['a', 'b', 'c', 'd']);
     });
 
-    it('should handle a set', () => {
-        let xs = new Set([1, 2, 3, 4]);
-        let result = [];
-
-        forEach(xs, x => result.push(x));
-
-        assert.deepEqual(result, [1, 2, 3, 4]);
-    });
-
     it('should handle a map', () => {
         let xs = new Map([[1, 1], [2, 2], [3, 3], [4, 4]]);
         let result = [];
@@ -37,6 +28,15 @@ describe('forEach', () => {
 
         assert.deepEqual(result, [1, 2, 3, 4]);
 
+    });
+
+    it('should handle a set', () => {
+        let xs = new Set([1, 2, 3, 4]);
+        let result = [];
+
+        forEach(xs, x => result.push(x));
+
+        assert.deepEqual(result, [1, 2, 3, 4]);
     });
 
     it('should pass the correct arguments', () => {

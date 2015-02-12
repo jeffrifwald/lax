@@ -1,6 +1,6 @@
 {
   "name": "lax",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A modular JS library for lazy data manipulation.",
   "main": "index.js",
   "repository": {
@@ -13,7 +13,7 @@
   "homepage": "https://github.com/jmcriffey/lax",
   "scripts": {
     "build": "node build",
-    "lint": "jshint *.js src test",
+    "lint": "jshint build src test",
     "prepublish": "node build",
     "test": "npm run lint && npm run unit",
     "unit": "_mocha --require test/.test_harness.js --recursive test"

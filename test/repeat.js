@@ -5,6 +5,9 @@ describe('repeat', () => {
     it('should repeat a value', () => {
         let result = repeat('hello', 5);
 
-        assert.deepEqual(Array.from(result), ['hello', 'hello', 'hello', 'hello', 'hello']);
+        assert.deepEqual(
+            Array.from(result),
+            ['hello', 'hello', 'hello', 'hello', 'hello']
+        );
     });
 });

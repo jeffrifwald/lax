@@ -1,3 +1,4 @@
+/* jshint node:true */
 'use strict';
 
 var fs = require('fs');
@@ -13,7 +14,9 @@ function build(path) {
             var srcPath = path + '/' + file;
             var varName = file.replace('.js', '');
 
-            indexImports.push('import ' + varName + ' from ' + '\'./' + file + '\';');
+            indexImports.push(
+                'import ' + varName + ' from ' + '\'./' + file + '\';'
+            );
             indexExports.push('\t' + varName);
 
             fs.readFile(srcPath, {encoding: 'utf-8'}, function(err, content) {
