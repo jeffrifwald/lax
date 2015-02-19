@@ -4,7 +4,7 @@ function *dropWhile(xs, fn) {
 
     for (let i = 0, x = iter.next(); !x.done; x = iter.next(), i++) {
         if (drop) {
-            drop = fn(x.value, i, xs);
+            drop = fn(x.value, i);
         }
 
         if (!drop) {

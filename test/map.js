@@ -34,11 +34,9 @@ describe('map', () => {
         let xs = [1, 2, 3, 4];
         let values = [];
         let indices = [];
-        let arrays = [];
-        let result = map(xs, (x, i, xs) => {
+        let result = map(xs, (x, i) => {
             values.push(x);
             indices.push(i);
-            arrays.push(xs);
 
             return true;
         });
@@ -46,6 +44,5 @@ describe('map', () => {
         assert.deepEqual(Array.from(result), [true, true, true, true]);
         assert.deepEqual(values, [1, 2, 3, 4]);
         assert.deepEqual(indices, [0, 1, 2, 3]);
-        assert.deepEqual(arrays, [xs, xs, xs, xs]);
     });
 });

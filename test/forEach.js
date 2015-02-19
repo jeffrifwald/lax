@@ -43,16 +43,13 @@ describe('forEach', () => {
         let xs = [1, 2, 3, 4];
         let values = [];
         let indices = [];
-        let arrays = [];
 
-        forEach(xs, (x, i, xs) => {
+        forEach(xs, (x, i) => {
             values.push(x);
             indices.push(i);
-            arrays.push(xs);
         });
 
         assert.deepEqual(values, [1, 2, 3, 4]);
         assert.deepEqual(indices, [0, 1, 2, 3]);
-        assert.deepEqual(arrays, [xs, xs, xs, xs]);
     });
 });
