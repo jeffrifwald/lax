@@ -2,7 +2,7 @@ import chunk from '../src/chunk';
 
 
 describe('chunk', () => {
-    it('should chunk an array', () => {
+    it('should handle an array', () => {
         let xs = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         let result = chunk(xs, 2);
 
@@ -12,7 +12,7 @@ describe('chunk', () => {
         );
     });
 
-    it('should chunk a string', () => {
+    it('should handle a string', () => {
         let xs = 'abcdefgh';
         let result = chunk(xs, 3);
 
@@ -22,7 +22,7 @@ describe('chunk', () => {
         );
     });
 
-    it('should chunk a map', () => {
+    it('should handle a map', () => {
         let xs = new Map([[1, 1], [2, 2], [3, 3], [4, 4]]);
         let result = chunk(xs, 2);
 
@@ -32,7 +32,7 @@ describe('chunk', () => {
         );
     });
 
-    it('should chunk a set', () => {
+    it('should handle a set', () => {
         let xs = new Set([1, 2, 3, 4]);
         let result = chunk(xs, 4);
 
