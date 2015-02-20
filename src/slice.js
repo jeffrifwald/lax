@@ -1,32 +1,18 @@
-function *slice(xs, ...args) {
+function *slice(xs, start=0, stop=null) {
     let iter = xs[Symbol.iterator]();
-    let start = 0;
-    let stop = args[0];
-    let step = args[2] || 1;
     let i = 0;
-    let x, next;
+    let x = iter.next();
 
-    if (args.length > 1) {
-        start = args[0];
-        stop = args[1];
-    }
-
-    next = () => {
-        for (let j = 0; j < step; j++) {
-            x = iter.next();
-            i += 1;
-        }
-    };
-
-    for (let j = 0; j < start + 1; j++) {
+    while (i < start && !x.done) {
         x = iter.next();
         i += 1;
     }
 
-    while (!x.done && (stop === null || i <= stop)) {
+    while (!x.done && (i < stop || stop === null)) {
         yield x.value;
 
-        next();
+        x = iter.next();
+        i += 1;
     }
 }
 

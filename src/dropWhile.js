@@ -1,16 +1,18 @@
 function *dropWhile(xs, predicate, thisArg) {
-    let iter = xs[Symbol.iterator]();
     let drop = true;
     let fn = thisArg ? predicate.bind(thisArg) : predicate;
+    let i = 0;
 
-    for (let i = 0, x = iter.next(); !x.done; x = iter.next(), i++) {
+    for (let x of xs) {
         if (drop) {
-            drop = fn(x.value, i, xs);
+            drop = fn(x, i, xs);
         }
 
         if (!drop) {
-            yield x.value;
+            yield x;
         }
+
+        i += 1;
     }
 }
 

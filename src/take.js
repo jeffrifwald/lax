@@ -1,8 +1,14 @@
 function *take(xs, n) {
-    let iter = xs[Symbol.iterator]();
+    let i = 0;
 
-    for (let i = 0, x = iter.next(); !x.done && i < n; x = iter.next(), i++) {
-        yield x.value;
+    for (let x of xs) {
+        if (i === n) {
+            break;
+        }
+
+        yield x;
+
+        i += 1;
     }
 }
 

@@ -1,18 +1,8 @@
-function *rest(xs, n=1) {
-    let iter = xs[Symbol.iterator]();
-    let i = 0;
-    let x = iter.next();
+import slice from './slice';
 
-    while (i < n && !x.done) {
-        x = iter.next();
-        i += 1;
-    }
 
-    while (!x.done) {
-        yield x.value;
-
-        x = iter.next();
-    }
+function rest(xs, n=1) {
+    return slice(xs, n);
 }
 
 export default rest;

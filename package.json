@@ -21,7 +21,9 @@
   "keywords": [
     "lazy"
   ],
-  "files": ["*.js"],
+  "files": [
+    "*.js"
+  ],
   "author": "Jeff McRiffey",
   "license": "MIT",
   "devDependencies": {

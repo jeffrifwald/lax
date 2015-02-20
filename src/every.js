@@ -1,13 +1,19 @@
 function every(xs, predicate, thisArg) {
-    let iter = xs[Symbol.iterator]();
     let result = true;
     let fn = thisArg ? predicate.bind(thisArg) : predicate;
+    let i = 0;
 
-    for (let i = 0, x = iter.next(); !x.done && result; x = iter.next(), i++) {
-        result = fn(x.value, i, xs);
+    for (let x of xs) {
+        result = fn(x, i, xs);
+
+        if (!result) {
+            break;
+        }
+
+        i += 1;
     }
 
-    return result;
+    return !!result;
 }
 
 export default every;

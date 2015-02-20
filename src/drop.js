@@ -1,10 +1,12 @@
 function *drop(xs, n) {
-    let iter = xs[Symbol.iterator]();
+    let i = 0;
 
-    for (let i = 0, x = iter.next(); !x.done; x = iter.next(), i++) {
+    for (let x of xs) {
         if (i >= n) {
-            yield x.value;
+            yield x;
         }
+
+        i += 1;
     }
 }
 

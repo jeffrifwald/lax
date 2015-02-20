@@ -16,6 +16,20 @@ describe('every', () => {
         assert.isFalse(result);
     });
 
+    it('should cast to true', () => {
+        let xs = [1, 2, 3, 4];
+        let result = every(xs, x => x);
+
+        assert.equal(result, true);
+    });
+
+    it('should cast to false', () => {
+        let xs = [0, 0, 0, 0];
+        let result = every(xs, x => x);
+
+        assert.equal(result, false);
+    });
+
     it('should pass the correct arguments', () => {
         let xs = [1, 2, 3, 4];
         let thisArg = {};

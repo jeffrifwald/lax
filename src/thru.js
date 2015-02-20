@@ -1,4 +1,4 @@
-function *map(xs, predicate, thisArg) {
+function *thru(xs, predicate, thisArg) {
     let fn = thisArg ? predicate.bind(thisArg) : predicate;
     let i = 0;
 
@@ -8,4 +8,4 @@ function *map(xs, predicate, thisArg) {
     }
 }
 
-export default map;
+export default thru;
