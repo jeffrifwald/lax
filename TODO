@@ -1,0 +1,29 @@
+at (lodash)
+countBy
+find
+findWhere
+flatten
+get (lazy)
+groupBy
+indexBy
+indexOf
+intersection
+last
+max
+min
+reduce
+remove
+reverse
+sample
+size
+union
+uniq
+unzip
+where
+xor
+zip
+
+---
+partition
+sort
+shuffle
