@@ -1,6 +1,6 @@
-function *pluck(xs, key) {
+function *pluck(xs, prop) {
     for (let x of xs) {
-        yield x[key];
+        yield x[prop];
     }
 }
 
