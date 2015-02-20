@@ -34,26 +34,22 @@ import without from './without';
 
 function chain(xs) {
     return {
+
+        //returns a generator
         all: (...args) => chain(all(xs, ...args)),
         any: (...args) => chain(any(xs, ...args)),
         chain: () => chain(xs),
         chunk: (...args) => chain(chunk(xs, ...args)),
         compact: (...args) => chain(compact(xs, ...args)),
         concat: (...args) => chain(concat(xs, ...args)),
-        contains: (...args) => chain(contains(xs, ...args)),
         drop: (...args) => chain(drop(xs, ...args)),
         dropWhile: (...args) => chain(dropWhile(xs, ...args)),
         each: (...args) => chain(each(xs, ...args)),
-        every: (...args) => chain(every(xs, ...args)),
-        first: (...args) => chain(first(xs, ...args)),
         filter: (...args) => chain(filter(xs, ...args)),
         forEach: (...args) => chain(forEach(xs, ...args)),
-        head: (...args) => chain(head(xs, ...args)),
-        includes: (...args) => chain(includes(xs, ...args)),
         initial: (...args) => chain(initial(xs, ...args)),
         map: (...args) => chain(map(xs, ...args)),
         none: (...args) => chain(none(xs, ...args)),
-        nth: (...args) => chain(nth(xs, ...args)),
         pluck: (...args) => chain(pluck(xs, ...args)),
         range: (...args) => chain(range(xs, ...args)),
         repeat: (...args) => chain(repeat(...args)),
@@ -67,7 +63,17 @@ function chain(xs) {
         takeWhile: (...args) => chain(takeWhile(xs, ...args)),
         thru: (...args) => chain(thru(xs, ...args)),
         without: (...args) => chain(without(xs, ...args)),
-        toArray: () => {
+
+        //returns a value
+        contains: (...args) => contains(xs, ...args),
+        every: (...args) => every(xs, ...args),
+        first: (...args) => first(xs, ...args),
+        head: (...args) => head(xs, ...args),
+        includes: (...args) => includes(xs, ...args),
+        nth: (...args) => nth(xs, ...args),
+
+        //iterates and returns
+        toArray() {
             let arr = [];
 
             for (let x of xs) {
@@ -77,7 +83,18 @@ function chain(xs) {
             return arr;
         },
 
-        [Symbol.iterator]: function*() {
+        toString() {
+            let str = '';
+
+            for (let x of xs) {
+                str += x;
+            }
+
+            return str;
+        },
+
+        //iterator
+        *[Symbol.iterator]() {
             for (let x of xs) {
                 yield x;
             }

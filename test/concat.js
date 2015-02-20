@@ -3,38 +3,46 @@ import concat from '../src/concat';
 
 describe('concat', () => {
     it('should handle an array', () => {
-        let result = concat([1, 2, 3], [4, 5]);
+        let result = chain([1, 2, 3]).concat([4, 5]).toArray();
 
-        assert.deepEqual(Array.from(result), [1, 2, 3, 4, 5]);
+        assert.deepEqual(result, [1, 2, 3, 4, 5]);
     });
 
     it('should handle a string', () => {
-        let result = concat('he', 'll', 'o');
+        let result = chain('he').concat('ll', 'o').toString();
 
-        assert.deepEqual(Array.from(result), ['h', 'e', 'l', 'l', 'o']);
+        assert.deepEqual(result, 'hello');
     });
 
     it('should handle a map', () => {
-        let result = concat(new Map([[1, 1]]), new Map([[2, 2]]));
+        let result = (
+            chain(new Map([[1, 1]]))
+            .concat(new Map([[2, 2]]))
+            .toArray()
+        );
 
-        assert.deepEqual(Array.from(result), [[1, 1], [2, 2]]);
+        assert.deepEqual(result, [[1, 1], [2, 2]]);
     });
 
     it('should handle a set', () => {
-        let result = concat(new Set([1, 2, 3]), new Set([4, 5]));
+        let result = (
+            chain(new Set([1, 2, 3]))
+            .concat(new Set([4, 5]))
+            .toArray()
+        );
 
-        assert.deepEqual(Array.from(result), [1, 2, 3, 4, 5]);
+        assert.deepEqual(result, [1, 2, 3, 4, 5]);
     });
 
     it('should handle a single argument', () => {
-        let result = concat([1]);
+        let result = chain([1]).concat().toArray();
 
-        assert.deepEqual(Array.from(result), [1]);
+        assert.deepEqual(result, [1]);
     });
 
-    it('should handle no arguments', () => {
-        let result = concat();
+    it('should work unchained', () => {
+        let result = concat([1, 2, 3], [4, 5]);
 
-        assert.deepEqual(Array.from(result), []);
+        assert.deepEqual(Array.from(result), [1, 2, 3, 4, 5]);
     });
 });

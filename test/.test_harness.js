@@ -3,10 +3,10 @@
 var chai = require('chai');
 var mocha = require('mocha');
 var sinon = require('sinon');
-var traceur = require('traceur');
 
 
-traceur.require.makeDefault();
+require('traceur').require.makeDefault();
+global.chain = require('../src/chain').default;
 global.assert = chai.assert;
 global.stub = sinon.stub;
 global.describe = mocha.describe;
