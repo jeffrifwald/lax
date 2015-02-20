@@ -3,7 +3,9 @@ function forEach(xs, predicate, thisArg) {
     let fn = thisArg ? predicate.bind(thisArg) : predicate;
 
     for (let i = 0, x = iter.next(); !x.done; x = iter.next(), i++) {
-        fn(x.value, i, xs);
+        if (fn(x.value, i, xs) === false) {
+            return;
+        }
     }
 }
 

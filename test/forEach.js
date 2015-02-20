@@ -27,7 +27,6 @@ describe('forEach', () => {
         forEach(xs, x => result.push(x[0]));
 
         assert.deepEqual(result, [1, 2, 3, 4]);
-
     });
 
     it('should handle a set', () => {
@@ -39,17 +38,38 @@ describe('forEach', () => {
         assert.deepEqual(result, [1, 2, 3, 4]);
     });
 
+    it('should end early', () => {
+        let xs = [1, 2, 3, 4];
+        let result = [];
+
+        forEach(xs, x => {
+            result.push(x);
+
+            if (x === 2) {
+                return false;
+            }
+        });
+
+        assert.deepEqual(result, [1, 2]);
+    });
+
     it('should pass the correct arguments', () => {
         let xs = [1, 2, 3, 4];
+        let thisArg = {};
         let values = [];
         let indices = [];
-
-        forEach(xs, (x, i) => {
+        let arrays = [];
+        let thisArgs = [];
+        forEach(xs, function(x, i, xs) {
             values.push(x);
             indices.push(i);
-        });
+            arrays.push(xs);
+            thisArgs.push(this);
+        }, thisArg);
 
         assert.deepEqual(values, [1, 2, 3, 4]);
         assert.deepEqual(indices, [0, 1, 2, 3]);
+        assert.deepEqual(arrays, [xs, xs, xs, xs]);
+        assert.deepEqual(thisArgs, [thisArg, thisArg, thisArg, thisArg]);
     });
 });
