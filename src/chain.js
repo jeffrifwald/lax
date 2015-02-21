@@ -91,6 +91,14 @@ function chain(xs) {
             return arr;
         },
 
+        toMap() {
+            return new Map(xs);
+        },
+
+        toSet() {
+            return new Set(xs);
+        },
+
         toString() {
             let str = '';
 
