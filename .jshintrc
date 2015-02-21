@@ -3,8 +3,7 @@
   "eqeqeq": true,
   "esnext": true,
   "globals": {
-    "assert": true,
-    "stub": true
+    "assert": true
   },
   "immed": true,
   "indent": 4,
