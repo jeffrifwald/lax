@@ -18,9 +18,9 @@ describe('indexOf', () => {
     });
 
     it('should handle NaN', () => {
-        let xs = [NaN, 2, 3, 4];
+        let xs = [2, 3, 4, NaN];
 
-        assert.equal(chain(xs).indexOf(NaN), 0);
+        assert.equal(chain(xs).indexOf(NaN), 3);
     });
 
     it('should handle an array', () => {

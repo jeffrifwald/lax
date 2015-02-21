@@ -33,6 +33,13 @@ describe('slice', () => {
         assert.deepEqual(result, [3, 4]);
     });
 
+    it('should handle no arguments', () => {
+        let xs = [1, 2, 3, 4];
+        let result = chain(xs).slice().toArray();
+
+        assert.deepEqual(result, [1, 2, 3, 4]);
+    });
+
     it('should handle a start', () => {
         let xs = [1, 2, 3, 4];
         let result = chain(xs).slice(1).toArray();

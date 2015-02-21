@@ -19,6 +19,18 @@ describe('chain', () => {
         });
     });
 
+    it('should be chainable', () => {
+        let xs = [1, 2, 3, 4];
+
+        assert.deepEqual(chain(xs).chain().toArray(), [1, 2, 3, 4]);
+    });
+
+    it('should be iterable', () => {
+        let xs = [1, 2, 3, 4];
+
+        assert.deepEqual(Array.from(chain(xs)), [1, 2, 3, 4]);
+    });
+
     it('should turn an iterable into an array', () => {
         let xs = [1, 2, 3, 4];
 

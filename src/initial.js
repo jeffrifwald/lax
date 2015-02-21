@@ -1,16 +1,13 @@
 function *initial(xs) {
-    let citer = xs[Symbol.iterator]();
-    let niter = xs[Symbol.iterator]();
-    let curr = citer.next();
-    let next = niter.next();
-
-    next = niter.next();
+    let iter = xs[Symbol.iterator]();
+    let curr = iter.next();
+    let next = iter.next();
 
     while (!next.done) {
         yield curr.value;
 
-        curr = citer.next();
-        next = niter.next();
+        curr = next;
+        next = iter.next();
     }
 }
 
