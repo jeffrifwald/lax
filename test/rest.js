@@ -1,53 +1,61 @@
+import chain from '../src/chain';
 import rest from '../src/rest';
 
 
 describe('rest', () => {
     it('should handle an array', () => {
         let xs = [1, 2, 3, 4];
-        let result = rest(xs);
+        let result = chain(xs).rest().toArray();
 
-        assert.deepEqual(Array.from(result), [2, 3, 4]);
+        assert.deepEqual(result, [2, 3, 4]);
     });
 
     it('should handle a string', () => {
         let xs = 'hello';
-        let result = rest(xs);
+        let result = chain(xs).rest().toString();
 
-        assert.deepEqual(Array.from(result), ['e', 'l', 'l', 'o']);
+        assert.equal(result, 'ello');
     });
 
     it('should handle a map', () => {
         let xs = new Map([[1, 1], [2, 2]]);
-        let result = rest(xs);
+        let result = chain(xs).rest().toArray();
 
-        assert.deepEqual(Array.from(result), [[2, 2]]);
+        assert.deepEqual(result, [[2, 2]]);
     });
 
     it('should handle a set', () => {
         let xs = new Set([1, 1, 2, 2, 3, 4]);
-        let result = rest(xs);
+        let result = chain(xs).rest().toArray();
 
-        assert.deepEqual(Array.from(result), [2, 3, 4]);
+        assert.deepEqual(result, [2, 3, 4]);
     });
 
     it('should handle a count', () => {
         let xs = [1, 2, 3, 4];
-        let result = rest(xs, 2);
+        let result = chain(xs).rest(2).toArray();
 
-        assert.deepEqual(Array.from(result), [3, 4]);
+        assert.deepEqual(result, [3, 4]);
     });
 
     it('should handle a 0 count', () => {
         let xs = [1, 2, 3, 4];
-        let result = rest(xs, 0);
+        let result = chain(xs).rest(0).toArray();
 
-        assert.deepEqual(Array.from(result), [1, 2, 3, 4]);
+        assert.deepEqual(result, [1, 2, 3, 4]);
     });
 
     it('should handle a too large count', () => {
         let xs = [1, 2, 3, 4];
-        let result = rest(xs, 5);
+        let result = chain(xs).rest(5).toArray();
 
-        assert.deepEqual(Array.from(result), []);
+        assert.deepEqual(result, []);
+    });
+
+    it('should work unchained', () => {
+        let xs = [1, 2, 3, 4];
+        let result = rest(xs);
+
+        assert.deepEqual(Array.from(result), [2, 3, 4]);
     });
 });

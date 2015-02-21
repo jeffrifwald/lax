@@ -4,7 +4,6 @@
   "esnext": true,
   "globals": {
     "assert": true,
-    "chain": true,
     "stub": true
   },
   "immed": true,

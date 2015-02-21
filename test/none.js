@@ -1,33 +1,41 @@
+import chain from '../src/chain';
 import none from '../src/none';
 
 
 describe('none', () => {
     it('should handle a true case', () => {
         let xs = [1, 2, 3, 4];
-        let result = none(xs, x => x > 5);
+        let result = chain(xs).none(x => x > 5);
 
         assert.isTrue(result);
     });
 
     it('should handle a false case', () => {
         let xs = [1, 2, 3, 4];
-        let result = none(xs, x => x > 3);
+        let result = chain(xs).none(x => x > 3);
 
         assert.isFalse(result);
     });
 
     it('should cast to true', () => {
         let xs = [0, 0, 0, 0];
-        let result = none(xs, x => x);
+        let result = chain(xs).none(x => x);
 
         assert.equal(result, true);
     });
 
     it('should cast to false', () => {
         let xs = [1, 2, 3, 4];
-        let result = none(xs, x => x);
+        let result = chain(xs).none(x => x);
 
         assert.equal(result, false);
+    });
+
+    it('should work unchained', () => {
+        let xs = [1, 2, 3, 4];
+        let result = none(xs, x => x > 5);
+
+        assert.isTrue(result);
     });
 
     it('should pass the correct arguments', () => {
@@ -37,7 +45,7 @@ describe('none', () => {
         let indices = [];
         let arrays = [];
         let thisArgs = [];
-        let result = none(xs, function(x, i, xs) {
+        let result = chain(xs).none(function(x, i, xs) {
             values.push(x);
             indices.push(i);
             arrays.push(xs);

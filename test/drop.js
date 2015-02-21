@@ -1,3 +1,4 @@
+import chain from '../src/chain';
 import drop from '../src/drop';
 
 

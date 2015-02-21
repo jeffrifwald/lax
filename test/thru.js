@@ -1,8 +1,24 @@
+import chain from '../src/chain';
 import thru from '../src/thru';
 
 
 describe('thru', () => {
     it('should be lazy', () => {
+        let xs = [1, 2, 3, 4];
+        let callCount = 0;
+        let fn = (x) => {
+            callCount += 1;
+
+            return x * x;
+        };
+        let result = chain(xs).thru(fn);
+
+        assert.equal(callCount, 0);
+        assert.deepEqual(result.toArray(), [1, 4, 9, 16]);
+        assert.equal(callCount, 4);
+    });
+
+    it('should work unchained', () => {
         let xs = [1, 2, 3, 4];
         let callCount = 0;
         let fn = (x) => {
@@ -24,14 +40,20 @@ describe('thru', () => {
         let indices = [];
         let arrays = [];
         let thisArgs = [];
-        let result = thru(xs, function(x, i, xs) {
+        let result = chain(xs).thru(function(x, i, xs) {
             values.push(x);
             indices.push(i);
             arrays.push(xs);
             thisArgs.push(this);
+
+            return x * x;
         }, thisArg);
 
-        Array.from(result);
+        assert.deepEqual(values, []);
+        assert.deepEqual(indices, []);
+        assert.deepEqual(arrays, []);
+        assert.deepEqual(thisArgs, []);
+        assert.deepEqual(result.toArray(), [1, 4, 9, 16]);
         assert.deepEqual(values, [1, 2, 3, 4]);
         assert.deepEqual(indices, [0, 1, 2, 3]);
         assert.deepEqual(arrays, [xs, xs, xs, xs]);

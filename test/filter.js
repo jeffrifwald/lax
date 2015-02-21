@@ -1,3 +1,4 @@
+import chain from '../src/chain';
 import filter from '../src/filter';
 
 

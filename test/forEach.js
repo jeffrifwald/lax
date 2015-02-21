@@ -1,3 +1,4 @@
+import chain from '../src/chain';
 import forEach from '../src/forEach';
 
 

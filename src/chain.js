@@ -36,8 +36,6 @@ function chain(xs) {
     return {
 
         //returns a generator
-        all: (...args) => chain(all(xs, ...args)),
-        any: (...args) => chain(any(xs, ...args)),
         chain: () => chain(xs),
         chunk: (...args) => chain(chunk(xs, ...args)),
         compact: (...args) => chain(compact(xs, ...args)),
@@ -49,14 +47,12 @@ function chain(xs) {
         forEach: (...args) => chain(forEach(xs, ...args)),
         initial: (...args) => chain(initial(xs, ...args)),
         map: (...args) => chain(map(xs, ...args)),
-        none: (...args) => chain(none(xs, ...args)),
         pluck: (...args) => chain(pluck(xs, ...args)),
-        range: (...args) => chain(range(xs, ...args)),
-        repeat: (...args) => chain(repeat(...args)),
+        range: (...args) => chain(range(...args)),
+        repeat: (...args) => chain(repeat(xs, ...args)),
         reject: (...args) => chain(reject(xs, ...args)),
         rest: (...args) => chain(rest(xs, ...args)),
         slice: (...args) => chain(slice(xs, ...args)),
-        some: (...args) => chain(some(xs, ...args)),
         tap: (...args) => chain(tap(xs, ...args)),
         tail: (...args) => chain(tail(xs, ...args)),
         take: (...args) => chain(take(xs, ...args)),
@@ -65,12 +61,16 @@ function chain(xs) {
         without: (...args) => chain(without(xs, ...args)),
 
         //returns a value
+        all: (...args) => all(xs, ...args),
+        any: (...args) => any(xs, ...args),
         contains: (...args) => contains(xs, ...args),
         every: (...args) => every(xs, ...args),
         first: (...args) => first(xs, ...args),
         head: (...args) => head(xs, ...args),
         includes: (...args) => includes(xs, ...args),
+        none: (...args) => none(xs, ...args),
         nth: (...args) => nth(xs, ...args),
+        some: (...args) => some(xs, ...args),
 
         //iterates and returns
         toArray() {

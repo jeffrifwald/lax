@@ -1,3 +1,4 @@
+import chain from '../src/chain';
 import first from '../src/first';
 
 

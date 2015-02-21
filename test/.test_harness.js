@@ -6,7 +6,6 @@ var sinon = require('sinon');
 
 
 require('traceur').require.makeDefault();
-global.chain = require('../src/chain').default;
 global.assert = chai.assert;
 global.stub = sinon.stub;
 global.describe = mocha.describe;

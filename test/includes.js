@@ -1,3 +1,4 @@
+import chain from '../src/chain';
 import includes from '../src/includes';
 
 
