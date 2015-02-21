@@ -12,13 +12,12 @@
   },
   "homepage": "https://github.com/jmcriffey/lax",
   "scripts": {
-    "build": "node make.js build",
-    "clean": "node make.js clean",
     "lint": "jshint make.js src test",
-    "prepublish": "npm run build",
-    "postpublish": "npm run clean",
-    "test": "npm run lint && npm run cover",
-    "cover": "babel-node node_modules/.bin/isparta cover --report html --dir .coverage node_modules/.bin/_mocha -- --recursive test"
+    "prepublish": "node make.js build",
+    "postpublish": "node make.js clean",
+    "test": "npm run lint && npm run cover && npm run check_coverage",
+    "check_coverage": "node_modules/isparta/node_modules/.bin/istanbul check-coverage .coverage/coverage.json",
+    "cover": "rm -rf .coverage && babel-node node_modules/.bin/isparta cover node_modules/.bin/_mocha -- --recursive test"
   },
   "keywords": [
     "lazy"

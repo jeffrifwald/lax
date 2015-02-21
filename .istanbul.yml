@@ -1,0 +1,19 @@
+check:
+    global:
+        branches: 100
+        functions: 100
+        lines: 100
+        statements: 100
+instrumentation:
+    root: .
+    excludes: ["make.js"]
+    include_all_sources: true
+reporting:
+    reports:
+        - html
+    dir: .coverage
+    watermarks:
+        branches: [99, 100]
+        functions: [99, 100]
+        statements: [99, 100]
+        lines: [99, 100]

@@ -75,7 +75,7 @@ function chain(xs) {
         find: (...args) => find(xs, ...args),
         findIndex: (...args) => findIndex(xs, ...args),
         findWhere: (...args) => findWhere(xs, ...args),
-        head: (...args) => head(xs, ...args),
+        head: () => head(xs),
         includes: (...args) => includes(xs, ...args),
         indexOf: (...args) => indexOf(xs, ...args),
         none: (...args) => none(xs, ...args),
