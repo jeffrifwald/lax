@@ -42,5 +42,9 @@ function clean(path) {
     });
 }
 
-clean('.');
-build('src');
+if (process.argv[2] === 'build') {
+    clean('.');
+    build('src');
+} else if (process.argv[2] === 'clean') {
+    clean('.');
+}

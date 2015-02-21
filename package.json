@@ -12,9 +12,11 @@
   },
   "homepage": "https://github.com/jmcriffey/lax",
   "scripts": {
-    "build": "node build",
+    "build": "node makejs build",
+    "clean": "node makejs clean",
     "lint": "jshint build src test",
-    "prepublish": "node build",
+    "prepublish": "npm run build",
+    "postpublish": "npm run clean",
     "test": "npm run lint && npm run unit",
     "unit": "_mocha --require test/.test_harness.js --recursive test"
   },
