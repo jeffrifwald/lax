@@ -34,6 +34,7 @@ import takeWhile from './takeWhile';
 import tap from './tap';
 import thru from './thru';
 import without from './without';
+import where from './where';
 
 
 function chain(xs) {
@@ -63,6 +64,7 @@ function chain(xs) {
         takeWhile: (...args) => chain(takeWhile(xs, ...args)),
         thru: (...args) => chain(thru(xs, ...args)),
         without: (...args) => chain(without(xs, ...args)),
+        where: (...args) => chain(where(xs, ...args)),
 
         //returns a value
         all: (...args) => all(xs, ...args),
