@@ -11,6 +11,8 @@ import every from './every';
 import filter from './filter';
 import first from './first';
 import find from './find';
+import findIndex from './findIndex';
+import findWhere from './findWhere';
 import forEach from './forEach';
 import head from './head';
 import includes from './includes';
@@ -68,6 +70,8 @@ function chain(xs) {
         every: (...args) => every(xs, ...args),
         first: (...args) => first(xs, ...args),
         find: (...args) => find(xs, ...args),
+        findIndex: (...args) => findIndex(xs, ...args),
+        findWhere: (...args) => findWhere(xs, ...args),
         head: (...args) => head(xs, ...args),
         includes: (...args) => includes(xs, ...args),
         none: (...args) => none(xs, ...args),
