@@ -12,13 +12,13 @@
   },
   "homepage": "https://github.com/jmcriffey/lax",
   "scripts": {
-    "build": "node makejs build",
-    "clean": "node makejs clean",
-    "lint": "jshint makejs src test",
+    "build": "node make.js build",
+    "clean": "node make.js clean",
+    "lint": "jshint make.js src test",
     "prepublish": "npm run build",
     "postpublish": "npm run clean",
-    "test": "npm run lint && npm run unit",
-    "unit": "_mocha --require test/.test_harness.js --recursive test"
+    "test": "npm run lint && npm run cover",
+    "cover": "babel-node node_modules/.bin/isparta cover --report html --dir .coverage node_modules/.bin/_mocha -- --recursive test"
   },
   "keywords": [
     "lazy"
@@ -29,10 +29,11 @@
   "author": "Jeff McRiffey",
   "license": "MIT",
   "devDependencies": {
+    "babel": "^4.4.3",
     "chai": "^2.0.0",
+    "isparta": "^2.0.0",
     "jshint": "^2.6.0",
     "mocha": "^2.1.0",
-    "rimraf": "^2.2.8",
-    "traceur": "0.0.85"
+    "rimraf": "^2.2.8"
   }
 }

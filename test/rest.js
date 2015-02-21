@@ -1,3 +1,5 @@
+import {assert} from 'chai';
+
 import chain from '../src/chain';
 import rest from '../src/rest';
 

@@ -1,3 +1,5 @@
+import {assert} from 'chai';
+
 import chain from '../src/chain';
 import compact from '../src/compact';
 

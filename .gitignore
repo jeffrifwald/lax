@@ -1,7 +1,8 @@
 .DS_Store
+.coverage
+TODO
 npm-debug.log
-
 node_modules/
-
 /*.js
+!/make.js
 

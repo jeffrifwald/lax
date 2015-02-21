@@ -3,6 +3,9 @@
 
 var fs = require('fs');
 
+function jsFiles(file) {
+    return file.slice(-3) === '.js';
+}
 
 function build(path) {
     var indexImports = [];
@@ -10,7 +13,7 @@ function build(path) {
     var indexSrc = '';
 
     fs.readdir(path, function(err, files) {
-        files.forEach(function(file) {
+        files.filter(jsFiles).forEach(function(file) {
             var srcPath = path + '/' + file;
             var varName = file.replace('.js', '');
 
@@ -34,8 +37,8 @@ function build(path) {
 
 function clean(path) {
     fs.readdir(path, function(err, files) {
-        files.filter(function(file) {
-            return file.slice(-3) === '.js';
+        files.filter(jsFiles).filter(function(file) {
+            return file !== 'make.js';
         }).forEach(function(file) {
             fs.unlink(file);
         });

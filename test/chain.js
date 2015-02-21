@@ -1,3 +1,4 @@
+import {assert} from 'chai';
 import fs from 'fs';
 
 import chain from '../src/chain';
