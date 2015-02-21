@@ -27,6 +27,7 @@ import range from './range';
 import reject from './reject';
 import repeat from './repeat';
 import rest from './rest';
+import size from './size';
 import slice from './slice';
 import some from './some';
 import tail from './tail';
@@ -82,6 +83,7 @@ function chain(xs) {
         last: () => last(xs),
         none: (...args) => none(xs, ...args),
         nth: (...args) => nth(xs, ...args),
+        size: () => size(xs),
         some: (...args) => some(xs, ...args),
 
         //iterates and returns
