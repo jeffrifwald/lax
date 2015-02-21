@@ -33,7 +33,7 @@ describe('drop', () => {
         assert.deepEqual(result, [[3, 3], [4, 4]]);
     });
 
-     it('should work unchained', () => {
+    it('should work unchained', () => {
         let xs = [1, 2, 3, 4];
         let result = drop(xs, 2);
 

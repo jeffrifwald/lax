@@ -20,7 +20,7 @@ describe('map', () => {
     });
 
     it('should handle a map', () => {
-        let xs = new Map([[1, 1], [2, 2], [3,3], [4, 4]]);
+        let xs = new Map([[1, 1], [2, 2], [3, 3], [4, 4]]);
         let result = chain(xs).map(x => x[0] * x[0]).toArray();
 
         assert.deepEqual(result, [1, 4, 9, 16]);

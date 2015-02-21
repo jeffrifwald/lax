@@ -27,7 +27,7 @@ describe('initial', () => {
     });
 
     it('should handle a map', () => {
-        let xs = new Map([[1, 1], [2, 2], [3,3], [4, 4]]);
+        let xs = new Map([[1, 1], [2, 2], [3, 3], [4, 4]]);
         let result = chain(xs).initial().toArray();
 
         assert.deepEqual(result, [[1, 1], [2, 2], [3, 3]]);
@@ -53,5 +53,4 @@ describe('initial', () => {
 
         assert.deepEqual(Array.from(result), [1, 2, 3]);
     });
-
 });

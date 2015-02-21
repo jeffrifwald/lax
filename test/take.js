@@ -27,7 +27,7 @@ describe('take', () => {
     });
 
     it('should handle a map', () => {
-        let xs = new Map([[1, 1], [2, 2], [3,3], [4, 4]]);
+        let xs = new Map([[1, 1], [2, 2], [3, 3], [4, 4]]);
         let result = chain(xs).take(2).toArray();
 
         assert.deepEqual(result, [[1, 1], [2, 2]]);

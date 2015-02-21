@@ -18,6 +18,7 @@ import head from './head';
 import includes from './includes';
 import indexOf from './indexOf';
 import initial from './initial';
+import last from './last';
 import map from './map';
 import none from './none';
 import nth from './nth';
@@ -78,6 +79,7 @@ function chain(xs) {
         head: () => head(xs),
         includes: (...args) => includes(xs, ...args),
         indexOf: (...args) => indexOf(xs, ...args),
+        last: () => last(xs),
         none: (...args) => none(xs, ...args),
         nth: (...args) => nth(xs, ...args),
         some: (...args) => some(xs, ...args),

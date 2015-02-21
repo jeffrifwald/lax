@@ -20,7 +20,7 @@ describe('takeWhile', () => {
     });
 
     it('should handle a map', () => {
-        let xs = new Map([[1, 1], [2, 2], ['2', 2], [3,3], [1, 1]]);
+        let xs = new Map([[1, 1], [2, 2], ['2', 2], [3, 3], [1, 1]]);
         let result = takeWhile(xs, x => x[1] < 3);
 
         assert.deepEqual(Array.from(result), [[1, 1], [2, 2], ['2', 2]]);

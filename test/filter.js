@@ -20,7 +20,7 @@ describe('filter', () => {
     });
 
     it('should handle a map', () => {
-        let xs = new Map([[1, 1], [2, 2], [3,3], [4, 4]]);
+        let xs = new Map([[1, 1], [2, 2], [3, 3], [4, 4]]);
         let result = chain(xs).filter(x => x[0] > 2).toArray();
 
         assert.deepEqual(result, [[3, 3], [4, 4]]);
