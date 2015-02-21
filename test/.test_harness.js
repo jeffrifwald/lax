@@ -2,12 +2,10 @@
 
 var chai = require('chai');
 var mocha = require('mocha');
-var sinon = require('sinon');
 
 
 require('traceur').require.makeDefault();
 global.assert = chai.assert;
-global.stub = sinon.stub;
 global.describe = mocha.describe;
 global.it = mocha.it;
 global.after = mocha.after;
