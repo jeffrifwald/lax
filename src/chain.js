@@ -16,6 +16,7 @@ import findWhere from './findWhere';
 import forEach from './forEach';
 import head from './head';
 import includes from './includes';
+import indexOf from './indexOf';
 import initial from './initial';
 import map from './map';
 import none from './none';
@@ -74,6 +75,7 @@ function chain(xs) {
         findWhere: (...args) => findWhere(xs, ...args),
         head: (...args) => head(xs, ...args),
         includes: (...args) => includes(xs, ...args),
+        indexOf: (...args) => indexOf(xs, ...args),
         none: (...args) => none(xs, ...args),
         nth: (...args) => nth(xs, ...args),
         some: (...args) => some(xs, ...args),

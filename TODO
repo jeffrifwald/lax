@@ -4,7 +4,6 @@ flatten
 get (lazy)
 groupBy
 indexBy
-indexOf
 intersection
 last
 max
