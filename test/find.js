@@ -31,6 +31,13 @@ describe('find', () => {
         assert.equal(result, 2);
     });
 
+    it('should handle not found', () => {
+        let xs = [1, 2, 3, 4];
+        let result = chain(xs).find(x => x > 4);
+
+        assert.isUndefined(result);
+    });
+
     it('should work unchained', () => {
         let xs = [1, 2, 3, 4];
         let result = find(xs, x => x === 3);

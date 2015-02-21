@@ -9,6 +9,8 @@ function findIndex(xs, predicate, thisArg) {
 
         i += 1;
     }
+
+    return -1;
 }
 
 export default findIndex;

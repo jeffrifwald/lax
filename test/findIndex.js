@@ -31,6 +31,13 @@ describe('findIndex', () => {
         assert.equal(result, 1);
     });
 
+    it('should handle not found', () => {
+        let xs = [1, 2, 3, 4];
+        let result = chain(xs).findIndex(x => x > 4);
+
+        assert.equal(result, -1);
+    });
+
     it('should work unchained', () => {
         let xs = [1, 2, 3, 4];
         let result = findIndex(xs, x => x === 3);

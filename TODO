@@ -1,7 +1,5 @@
 at (lodash)
 countBy
-find
-findWhere
 flatten
 get (lazy)
 groupBy
