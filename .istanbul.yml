@@ -7,7 +7,7 @@ check:
 instrumentation:
     root: .
     excludes: ["make.js"]
-    include_all_sources: true
+    include-all-sources: true
 reporting:
     reports:
         - html
