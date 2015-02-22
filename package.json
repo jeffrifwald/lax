@@ -15,7 +15,7 @@
     "check_coverage": "node_modules/isparta/node_modules/.bin/istanbul check-coverage .coverage/coverage.json",
     "cover": "node make.js clean && babel-node node_modules/.bin/isparta cover node_modules/.bin/_mocha -- --recursive test",
     "coveralls": "cat .coverage/lcov.info | node_modules/.bin/coveralls",
-    "dist": "npm run prepublish && browserify index.js -t babelify -o lax.js && uglifyjs lax.js -o lax.min.js && npm run postpublish",
+    "dist": "npm run prepublish && browserify index.js -t babelify -o lax.js && uglifyjs lax.js --output lax.min.js --source-map lax.min.map && npm run postpublish",
     "lint": "jshint make.js src test && jscs make.js src test",
     "prepublish": "node make.js index && node make.js src",
     "postpublish": "node make.js clean",
