@@ -4,11 +4,9 @@
   "main": "dist",
   "ignore": [
     "node_modules",
-    "Gruntfile.js",
-    "update.js",
     "*.json",
     ".*",
-    "*.js",
+    "make.js",
     "src",
     "test"
   ]
