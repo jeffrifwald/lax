@@ -1,7 +1,11 @@
 {
   "name": "lax",
   "version": "0.0.26",
-  "main": ["lax.js", "lax.min.js"],
+  "main": [
+    "lax.js",
+    "lax.min.js",
+    "lax.min.map"
+  ],
   "ignore": [
     "node_modules",
     "*.json",
