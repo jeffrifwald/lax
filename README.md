@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/jmcriffey/lax.svg?branch=master)](https://travis-ci.org/jmcriffey/lax)
-[![Coverage Status](https://coveralls.io/repos/jmcriffey/lax/badge.svg?branch=master)](https://coveralls.io/r/jmcriffey/lax?branch=master)
-[![npm](https://img.shields.io/npm/v/lax.svg)]()
-[![npm downloads](https://img.shields.io/npm/dm/lax.svg)]()
+[![build status](https://img.shields.io/travis/jmcriffey/lax/master.svg?style=flat-square)](https://travis-ci.org/jmcriffey/lax)
+[![build coverage](https://img.shields.io/coveralls/jmcriffey/lax/master.svg?style=flat-square)](https://coveralls.io/r/jmcriffey/lax?branch=master)
+[![npm](https://img.shields.io/npm/v/lax.svg?style=flat-square)](https://www.npmjs.com/package/lax)
+[![npm downloads](https://img.shields.io/npm/dm/lax.svg?style=flat-square)](https://www.npmjs.com/package/lax)
 
 A JS library for lazy data manipulation.
