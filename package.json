@@ -17,7 +17,7 @@
     "postpublish": "node make.js clean",
     "test": "npm run lint && npm run cover && npm run check_coverage",
     "check_coverage": "node_modules/isparta/node_modules/.bin/istanbul check-coverage .coverage/coverage.json",
-    "cover": "rm -rf .coverage && babel-node node_modules/.bin/isparta cover node_modules/.bin/_mocha -- --recursive test"
+    "cover": "rm -rf .coverage && node make.js clean && babel-node node_modules/.bin/isparta cover node_modules/.bin/_mocha -- --recursive test"
   },
   "keywords": [
     "lazy"
