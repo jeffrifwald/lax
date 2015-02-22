@@ -10,10 +10,12 @@ function jsFiles(file) {
 }
 
 function src(path) {
+    var options = {encoding: 'utf-8'};
+
     fs.readdir(path, function(err, files) {
         files.filter(jsFiles).forEach(function(file) {
-            fs.readFile(path + '/' + file, {encoding: 'utf-8'}, function(err, content) {
-                fs.writeFile(file, content, {encoding: 'utf-8'});
+            fs.readFile(path + '/' + file, options, function(err, content) {
+                fs.writeFile(file, content, options);
             });
         });
     });
