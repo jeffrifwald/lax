@@ -7,8 +7,8 @@
     "Gruntfile.js",
     "update.js",
     "*.json",
-    ".*"
-    "*.js"
+    ".*",
+    "*.js",
     "src",
     "test"
   ]
