@@ -1,0 +1,15 @@
+{
+  "name": "lax",
+  "version": "0.0.21",
+  "main": "./dist.js",
+  "ignore": [
+    "node_modules",
+    "Gruntfile.js",
+    "update.js",
+    "*.json",
+    ".*"
+    "*.js"
+    "src",
+    "test"
+  ]
+}
