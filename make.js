@@ -21,7 +21,7 @@ function src(path) {
     });
 }
 
-function index(path) {
+function index(path, exprt) {
     var indexImports = [];
     var indexExports = [];
     var indexSrc = '';
@@ -38,7 +38,7 @@ function index(path) {
 
         indexSrc =
             indexImports.join('\n') + '\n' + '\n' + '\n' +
-            'export default {\n' + indexExports.join(',\n') + '\n};\n';
+            exprt + ' {\n' + indexExports.join(',\n') + '\n};\n';
 
         fs.writeFile('index.js', indexSrc, {encoding: 'utf-8'});
     });
@@ -62,8 +62,10 @@ function clean(path) {
 
 if (process.argv[2] === 'src') {
     src('src');
-} else if (process.argv[2] === 'index') {
-    index('src');
+} else if (process.argv[2] === 'index_node') {
+    index('src', 'export default');
+} else if (process.argv[2] === 'index_browser') {
+    index('src', 'window.lax =');
 } else if (process.argv[2] === 'clean') {
     clean('.');
 }

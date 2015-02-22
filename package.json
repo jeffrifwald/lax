@@ -1,6 +1,6 @@
 {
   "name": "lax",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "A modular JS library for lazy data manipulation.",
   "main": "index.js",
   "repository": {
@@ -15,9 +15,11 @@
     "check_coverage": "node_modules/isparta/node_modules/.bin/istanbul check-coverage .coverage/coverage.json",
     "cover": "node make.js clean && babel-node node_modules/.bin/isparta cover node_modules/.bin/_mocha -- --recursive test",
     "coveralls": "cat .coverage/lcov.info | node_modules/.bin/coveralls",
-    "dist": "npm run prepublish && browserify index.js -t babelify -o lax.js && uglifyjs lax.js --output lax.min.js --source-map lax.min.map && npm run postpublish",
+    "dist": "npm run make_browser && browserify index.js -t babelify -o lax.js && uglifyjs lax.js --output lax.min.js --source-map lax.min.map && npm run postpublish",
     "lint": "jshint make.js src test && jscs make.js src test",
-    "prepublish": "node make.js index && node make.js src",
+    "make_node": "node make.js index_node && node make.js src",
+    "make_browser": "node make.js index_browser && node make.js src",
+    "prepublish": "npm make_node",
     "postpublish": "node make.js clean",
     "test": "npm run lint && npm run cover && npm run check_coverage"
   },

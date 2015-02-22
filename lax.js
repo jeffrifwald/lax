@@ -1028,7 +1028,7 @@ var where = _interopRequire(require("./where.js"));
 
 var without = _interopRequire(require("./without.js"));
 
-module.exports = {
+window.lax = {
 	all: all,
 	any: any,
 	chain: chain,
