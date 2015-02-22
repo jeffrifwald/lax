@@ -19,7 +19,7 @@
     "lint": "jshint make.js src test && jscs make.js src test",
     "make_node": "node make.js index_node && node make.js src",
     "make_browser": "node make.js index_browser && node make.js src",
-    "prepublish": "npm make_node",
+    "prepublish": "npm run make_node",
     "postpublish": "node make.js clean",
     "test": "npm run lint && npm run cover && npm run check_coverage"
   },
