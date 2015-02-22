@@ -15,6 +15,7 @@ import findIndex from './findIndex';
 import findWhere from './findWhere';
 import forEach from './forEach';
 import enumerate from './enumerate';
+import get from './get';
 import head from './head';
 import includes from './includes';
 import indexOf from './indexOf';
@@ -79,6 +80,7 @@ function chain(xs) {
         find: (...args) => find(xs, ...args),
         findIndex: (...args) => findIndex(xs, ...args),
         findWhere: (...args) => findWhere(xs, ...args),
+        get: (...args) => get(xs, ...args),
         head: () => head(xs),
         includes: (...args) => includes(xs, ...args),
         indexOf: (...args) => indexOf(xs, ...args),

@@ -16,7 +16,7 @@ var some = _interopRequire(require("./some"));
 
 module.exports = some;
 
-},{"./some":35}],3:[function(require,module,exports){
+},{"./some":36}],3:[function(require,module,exports){
 "use strict";
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
@@ -54,6 +54,8 @@ var findWhere = _interopRequire(require("./findWhere"));
 var forEach = _interopRequire(require("./forEach"));
 
 var enumerate = _interopRequire(require("./enumerate"));
+
+var get = _interopRequire(require("./get"));
 
 var head = _interopRequire(require("./head"));
 
@@ -319,6 +321,13 @@ function chain(xs) {
 
                 return findWhere.apply(undefined, [xs].concat(args));
             },
+            get: function () {
+                for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+                    args[_key] = arguments[_key];
+                }
+
+                return get.apply(undefined, [xs].concat(args));
+            },
             head: function () {
                 return head(xs);
             },
@@ -432,7 +441,7 @@ module.exports = chain;
 
 //iterator
 
-},{"./all":1,"./any":2,"./chunk":4,"./compact":5,"./concat":6,"./contains":7,"./drop":8,"./dropWhile":9,"./each":10,"./enumerate":11,"./every":12,"./filter":13,"./find":14,"./findIndex":15,"./findWhere":16,"./first":17,"./forEach":18,"./head":19,"./includes":20,"./indexOf":22,"./initial":23,"./last":24,"./map":25,"./none":26,"./nth":27,"./pluck":28,"./range":29,"./reject":30,"./repeat":31,"./rest":32,"./size":33,"./slice":34,"./some":35,"./tail":36,"./take":37,"./takeWhile":38,"./tap":39,"./thru":40,"./where":41,"./without":42}],4:[function(require,module,exports){
+},{"./all":1,"./any":2,"./chunk":4,"./compact":5,"./concat":6,"./contains":7,"./drop":8,"./dropWhile":9,"./each":10,"./enumerate":11,"./every":12,"./filter":13,"./find":14,"./findIndex":15,"./findWhere":16,"./first":17,"./forEach":18,"./get":19,"./head":20,"./includes":21,"./indexOf":23,"./initial":24,"./last":25,"./map":26,"./none":27,"./nth":28,"./pluck":29,"./range":30,"./reject":31,"./repeat":32,"./rest":33,"./size":34,"./slice":35,"./some":36,"./tail":37,"./take":38,"./takeWhile":39,"./tap":40,"./thru":41,"./where":42,"./without":43}],4:[function(require,module,exports){
 "use strict";
 
 var chunk = regeneratorRuntime.mark(function chunk(xs, n) {
@@ -586,7 +595,7 @@ var includes = _interopRequire(require("./includes"));
 
 module.exports = includes;
 
-},{"./includes":20}],8:[function(require,module,exports){
+},{"./includes":21}],8:[function(require,module,exports){
 "use strict";
 
 var drop = regeneratorRuntime.mark(function drop(xs, n) {
@@ -907,13 +916,34 @@ module.exports = forEach;
 },{}],19:[function(require,module,exports){
 "use strict";
 
+function get(xs) {
+    var n = arguments[1] === undefined ? 0 : arguments[1];
+
+    var i = 0;
+
+    for (var _iterator = xs[Symbol.iterator](), _step; !(_step = _iterator.next()).done;) {
+        var x = _step.value;
+
+        if (i === n) {
+            return x;
+        }
+
+        i += 1;
+    }
+}
+
+module.exports = get;
+
+},{}],20:[function(require,module,exports){
+"use strict";
+
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
 
 var first = _interopRequire(require("./first"));
 
 module.exports = first;
 
-},{"./first":17}],20:[function(require,module,exports){
+},{"./first":17}],21:[function(require,module,exports){
 "use strict";
 
 function includes(xs, v) {
@@ -941,7 +971,7 @@ function includes(xs, v) {
 
 module.exports = includes;
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 "use strict";
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
@@ -981,6 +1011,8 @@ var findWhere = _interopRequire(require("./findWhere.js"));
 var first = _interopRequire(require("./first.js"));
 
 var forEach = _interopRequire(require("./forEach.js"));
+
+var get = _interopRequire(require("./get.js"));
 
 var head = _interopRequire(require("./head.js"));
 
@@ -1047,6 +1079,7 @@ window.lax = {
 	findWhere: findWhere,
 	first: first,
 	forEach: forEach,
+	get: get,
 	head: head,
 	includes: includes,
 	indexOf: indexOf,
@@ -1072,7 +1105,7 @@ window.lax = {
 	without: without
 };
 
-},{"./all.js":1,"./any.js":2,"./chain.js":3,"./chunk.js":4,"./compact.js":5,"./concat.js":6,"./contains.js":7,"./drop.js":8,"./dropWhile.js":9,"./each.js":10,"./enumerate.js":11,"./every.js":12,"./filter.js":13,"./find.js":14,"./findIndex.js":15,"./findWhere.js":16,"./first.js":17,"./forEach.js":18,"./head.js":19,"./includes.js":20,"./indexOf.js":22,"./initial.js":23,"./last.js":24,"./map.js":25,"./none.js":26,"./nth.js":27,"./pluck.js":28,"./range.js":29,"./reject.js":30,"./repeat.js":31,"./rest.js":32,"./size.js":33,"./slice.js":34,"./some.js":35,"./tail.js":36,"./take.js":37,"./takeWhile.js":38,"./tap.js":39,"./thru.js":40,"./where.js":41,"./without.js":42}],22:[function(require,module,exports){
+},{"./all.js":1,"./any.js":2,"./chain.js":3,"./chunk.js":4,"./compact.js":5,"./concat.js":6,"./contains.js":7,"./drop.js":8,"./dropWhile.js":9,"./each.js":10,"./enumerate.js":11,"./every.js":12,"./filter.js":13,"./find.js":14,"./findIndex.js":15,"./findWhere.js":16,"./first.js":17,"./forEach.js":18,"./get.js":19,"./head.js":20,"./includes.js":21,"./indexOf.js":23,"./initial.js":24,"./last.js":25,"./map.js":26,"./none.js":27,"./nth.js":28,"./pluck.js":29,"./range.js":30,"./reject.js":31,"./repeat.js":32,"./rest.js":33,"./size.js":34,"./slice.js":35,"./some.js":36,"./tail.js":37,"./take.js":38,"./takeWhile.js":39,"./tap.js":40,"./thru.js":41,"./where.js":42,"./without.js":43}],23:[function(require,module,exports){
 "use strict";
 
 function indexOf(xs, v) {
@@ -1106,7 +1139,7 @@ function indexOf(xs, v) {
 
 module.exports = indexOf;
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 "use strict";
 
 var initial = regeneratorRuntime.mark(function initial(xs) {
@@ -1142,7 +1175,7 @@ var initial = regeneratorRuntime.mark(function initial(xs) {
 });
 module.exports = initial;
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 "use strict";
 
 function last(xs) {
@@ -1160,7 +1193,7 @@ function last(xs) {
 
 module.exports = last;
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 "use strict";
 
 var map = regeneratorRuntime.mark(function map(xs, predicate, thisArg) {
@@ -1198,7 +1231,7 @@ var map = regeneratorRuntime.mark(function map(xs, predicate, thisArg) {
 });
 module.exports = map;
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 "use strict";
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
@@ -1211,7 +1244,7 @@ function none(xs, predicate, thisArg) {
 
 module.exports = none;
 
-},{"./some":35}],27:[function(require,module,exports){
+},{"./some":36}],28:[function(require,module,exports){
 "use strict";
 
 function nth(xs, n) {
@@ -1230,7 +1263,7 @@ function nth(xs, n) {
 
 module.exports = nth;
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 "use strict";
 
 var pluck = regeneratorRuntime.mark(function pluck(xs, prop) {
@@ -1263,7 +1296,7 @@ var pluck = regeneratorRuntime.mark(function pluck(xs, prop) {
 });
 module.exports = pluck;
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 "use strict";
 
 var range = regeneratorRuntime.mark(function range() {
@@ -1308,7 +1341,7 @@ var range = regeneratorRuntime.mark(function range() {
 });
 module.exports = range;
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 "use strict";
 
 var reject = regeneratorRuntime.mark(function reject(xs, predicate, thisArg) {
@@ -1353,7 +1386,7 @@ var reject = regeneratorRuntime.mark(function reject(xs, predicate, thisArg) {
 });
 module.exports = reject;
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 "use strict";
 
 var repeat = regeneratorRuntime.mark(function repeat(v, n) {
@@ -1385,7 +1418,7 @@ var repeat = regeneratorRuntime.mark(function repeat(v, n) {
 });
 module.exports = repeat;
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 "use strict";
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
@@ -1400,7 +1433,7 @@ function rest(xs) {
 
 module.exports = rest;
 
-},{"./slice":34}],33:[function(require,module,exports){
+},{"./slice":35}],34:[function(require,module,exports){
 "use strict";
 
 function size(xs) {
@@ -1418,7 +1451,7 @@ function size(xs) {
 
 module.exports = size;
 
-},{}],34:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 "use strict";
 
 var slice = regeneratorRuntime.mark(function slice(xs) {
@@ -1461,7 +1494,7 @@ var slice = regeneratorRuntime.mark(function slice(xs) {
 });
 module.exports = slice;
 
-},{}],35:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 "use strict";
 
 function some(xs, predicate, thisArg) {
@@ -1478,7 +1511,7 @@ function some(xs, predicate, thisArg) {
 
 module.exports = some;
 
-},{}],36:[function(require,module,exports){
+},{}],37:[function(require,module,exports){
 "use strict";
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
@@ -1487,7 +1520,7 @@ var rest = _interopRequire(require("./rest"));
 
 module.exports = rest;
 
-},{"./rest":32}],37:[function(require,module,exports){
+},{"./rest":33}],38:[function(require,module,exports){
 "use strict";
 
 var take = regeneratorRuntime.mark(function take(xs, n) {
@@ -1535,7 +1568,7 @@ var take = regeneratorRuntime.mark(function take(xs, n) {
 });
 module.exports = take;
 
-},{}],38:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 "use strict";
 
 var takeWhile = regeneratorRuntime.mark(function takeWhile(xs, predicate, thisArg) {
@@ -1588,7 +1621,7 @@ var takeWhile = regeneratorRuntime.mark(function takeWhile(xs, predicate, thisAr
 });
 module.exports = takeWhile;
 
-},{}],39:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 "use strict";
 
 var tap = regeneratorRuntime.mark(function tap(xs, predicate, thisArg) {
@@ -1618,7 +1651,7 @@ var tap = regeneratorRuntime.mark(function tap(xs, predicate, thisArg) {
 });
 module.exports = tap;
 
-},{}],40:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 "use strict";
 
 var thru = regeneratorRuntime.mark(function thru(xs, predicate, thisArg) {
@@ -1656,7 +1689,7 @@ var thru = regeneratorRuntime.mark(function thru(xs, predicate, thisArg) {
 });
 module.exports = thru;
 
-},{}],41:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 "use strict";
 
 var where = regeneratorRuntime.mark(function where(xs, query) {
@@ -1721,7 +1754,7 @@ var where = regeneratorRuntime.mark(function where(xs, query) {
 });
 module.exports = where;
 
-},{}],42:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 "use strict";
 
 var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
@@ -1769,4 +1802,4 @@ var includes = _interopRequire(require("./includes"));
 
 module.exports = without;
 
-},{"./includes":20}]},{},[21]);
+},{"./includes":21}]},{},[22]);
