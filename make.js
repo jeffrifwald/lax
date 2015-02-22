@@ -2,6 +2,8 @@
 'use strict';
 
 var fs = require('fs');
+var rm = require('rimraf');
+
 
 function jsFiles(file) {
     return file.slice(-3) === '.js';
@@ -40,9 +42,11 @@ function clean(path) {
         files.filter(jsFiles).filter(function(file) {
             return file !== 'make.js';
         }).forEach(function(file) {
-            fs.unlink(file);
+            rm(file);
         });
     });
+
+    rm('.coverage', function() {});
 }
 
 if (process.argv[2] === 'build') {
