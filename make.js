@@ -47,7 +47,11 @@ function index(path) {
 function clean(path) {
     fs.readdir(path, function(err, files) {
         files.filter(jsFiles).filter(function(file) {
-            return file !== 'make.js' && file !== 'lax.js' && file !== 'lax.min.js';
+            return (
+                file !== 'make.js' &&
+                file !== 'lax.js' &&
+                file !== 'lax.min.js'
+            );
         }).forEach(function(file) {
             rm(file, function() {});
         });

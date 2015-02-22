@@ -6,7 +6,7 @@ check:
         statements: 100
 instrumentation:
     root: .
-    excludes: ["make.js", "**/dist/**"]
+    excludes: ["make.js", "lax.js", "lax.min.js"]
     include-all-sources: true
 reporting:
     reports:
