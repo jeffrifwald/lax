@@ -9,7 +9,8 @@ function jsFiles(file) {
     return file.slice(-3) === '.js';
 }
 
-function build(path) {
+function build() {
+    var path = 'src';
     var indexImports = [];
     var indexExports = [];
     var indexSrc = '';
@@ -37,8 +38,8 @@ function build(path) {
     });
 }
 
-function clean(path) {
-    fs.readdir(path, function(err, files) {
+function clean() {
+    fs.readdir('.', function(err, files) {
         files.filter(jsFiles).filter(function(file) {
             return file !== 'make.js';
         }).forEach(function(file) {
@@ -50,8 +51,8 @@ function clean(path) {
 }
 
 if (process.argv[2] === 'build') {
-    clean('.');
-    build('src');
+    clean();
+    build();
 } else if (process.argv[2] === 'clean') {
-    clean('.');
+    clean();
 }
