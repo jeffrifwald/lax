@@ -1,6 +1,6 @@
 {
   "name": "lax",
-  "version": "0.0.27",
+  "version": "0.0.28",
   "main": [
     "lax.js",
     "lax.min.js",
