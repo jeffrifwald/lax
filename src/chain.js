@@ -14,6 +14,7 @@ import find from './find';
 import findIndex from './findIndex';
 import findWhere from './findWhere';
 import forEach from './forEach';
+import enumerate from './enumerate';
 import head from './head';
 import includes from './includes';
 import indexOf from './indexOf';
@@ -50,6 +51,7 @@ function chain(xs) {
         drop: (...args) => chain(drop(xs, ...args)),
         dropWhile: (...args) => chain(dropWhile(xs, ...args)),
         each: (...args) => chain(each(xs, ...args)),
+        enumerate: () => chain(enumerate(xs)),
         filter: (...args) => chain(filter(xs, ...args)),
         forEach: (...args) => chain(forEach(xs, ...args)),
         initial: () => chain(initial(xs)),
