@@ -11,6 +11,7 @@ instrumentation:
 reporting:
     reports:
         - html
+        - lcovonly
     dir: .coverage
     watermarks:
         branches: [99, 100]

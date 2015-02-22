@@ -15,9 +15,10 @@
     "lint": "jshint make.js src test && jscs make.js src test",
     "prepublish": "node make.js build",
     "postpublish": "node make.js clean",
-    "test": "npm run lint && npm run cover && npm run check_coverage",
+    "test": "npm run lint && npm run cover && npm run check_coverage && npm run coveralls",
     "check_coverage": "node_modules/isparta/node_modules/.bin/istanbul check-coverage .coverage/coverage.json",
-    "cover": "node make.js clean && babel-node node_modules/.bin/isparta cover node_modules/.bin/_mocha -- --recursive test"
+    "cover": "node make.js clean && babel-node node_modules/.bin/isparta cover node_modules/.bin/_mocha -- --recursive test",
+    "coveralls": "cat .coverage/lcov.info | node_modules/.bin/coveralls"
   },
   "keywords": [
     "lazy"
@@ -30,6 +31,7 @@
   "devDependencies": {
     "babel": "^4.4.3",
     "chai": "^2.0.0",
+    "coveralls": "^2.11.2",
     "isparta": "^2.0.0",
     "jscs": "^1.11.3",
     "jshint": "^2.6.0",
