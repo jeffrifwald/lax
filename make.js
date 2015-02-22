@@ -42,7 +42,7 @@ function clean(path) {
         files.filter(jsFiles).filter(function(file) {
             return file !== 'make.js';
         }).forEach(function(file) {
-            rm(file);
+            rm(file, function() {});
         });
     });
 
