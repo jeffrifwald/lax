@@ -4,6 +4,7 @@ import chunk from './chunk';
 import compact from './compact';
 import concat from './concat';
 import contains from './contains';
+import countBy from './countBy';
 import drop from './drop';
 import dropWhile from './dropWhile';
 import each from './each';
@@ -75,6 +76,7 @@ function chain(xs) {
         all: (...args) => all(xs, ...args),
         any: (...args) => any(xs, ...args),
         contains: (...args) => contains(xs, ...args),
+        countBy: (...args) => countBy(xs, ...args),
         every: (...args) => every(xs, ...args),
         first: () => first(xs),
         find: (...args) => find(xs, ...args),

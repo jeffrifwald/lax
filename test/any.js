@@ -1,7 +1,7 @@
 import {assert} from 'chai';
 
-import chain from '../src/chain';
 import any from '../src/any';
+import chain from '../src/chain';
 
 
 describe('any', () => {
@@ -55,7 +55,7 @@ describe('any', () => {
             return x > 3;
         }, thisArg);
 
-        assert.deepEqual(result, true);
+        assert.isTrue(result);
         assert.deepEqual(values, [1, 2, 3, 4]);
         assert.deepEqual(indices, [0, 1, 2, 3]);
         assert.deepEqual(arrays, [xs, xs, xs, xs]);
