@@ -6,3 +6,4 @@ TODO
 .travis.yml
 .istanbul.yml
 .jshintrc
+make.js
