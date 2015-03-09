@@ -6,8 +6,3 @@ TODO
 .travis.yml
 .istanbul.yml
 .jshintrc
-bower.json
-lax.js
-lax.min.js
-lax.min.map
-

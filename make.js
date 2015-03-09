@@ -60,12 +60,9 @@ function clean(path) {
     rm('.coverage', function() {});
 }
 
-if (process.argv[2] === 'src') {
+if (process.argv[2] === 'build') {
     src('src');
-} else if (process.argv[2] === 'index_node') {
     index('src', 'export default');
-} else if (process.argv[2] === 'index_browser') {
-    index('src', 'window.lax =');
 } else if (process.argv[2] === 'clean') {
     clean('.');
 }

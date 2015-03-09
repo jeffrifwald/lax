@@ -1,6 +1,6 @@
 {
   "name": "lax",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "description": "A modular JS library for lazy data manipulation.",
   "main": "index.js",
   "repository": {
@@ -12,16 +12,11 @@
   },
   "homepage": "https://github.com/jmcriffey/lax",
   "scripts": {
-    "check_coverage": "node_modules/isparta/node_modules/.bin/istanbul check-coverage .coverage/coverage.json",
-    "cover": "node make.js clean && babel-node node_modules/.bin/isparta cover node_modules/.bin/_mocha -- --recursive test",
-    "coveralls": "cat .coverage/lcov.info | node_modules/.bin/coveralls",
-    "dist": "npm run make_browser && browserify index.js -t babelify -o lax.js && uglifyjs lax.js --output lax.min.js --source-map lax.min.map && npm run postpublish",
+    "unit": "node make.js clean && node_modules/.bin/babel-node node_modules/.bin/_mocha --recursive test",
     "lint": "jshint make.js src test && jscs make.js src test",
-    "make_node": "node make.js index_node && node make.js src",
-    "make_browser": "node make.js index_browser && node make.js src",
-    "prepublish": "npm run make_node",
+    "prepublish": "node make.js build",
     "postpublish": "node make.js clean",
-    "test": "npm run lint && npm run cover && npm run check_coverage"
+    "test": "npm run lint && npm run unit"
   },
   "keywords": [
     "lazy"
@@ -33,15 +28,10 @@
   "license": "MIT",
   "devDependencies": {
     "babel": "^4.4.3",
-    "babelify": "^5.0.3",
-    "browserify": "^9.0.3",
     "chai": "^2.0.0",
-    "coveralls": "^2.11.2",
-    "isparta": "^2.0.0",
     "jscs": "^1.11.3",
     "jshint": "^2.6.0",
     "mocha": "^2.1.0",
-    "rimraf": "^2.2.8",
-    "uglify-js": "^2.4.16"
+    "rimraf": "^2.2.8"
   }
 }

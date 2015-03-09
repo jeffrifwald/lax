@@ -5,37 +5,65 @@ import countBy from '../src/countBy';
 
 
 describe('countBy', () => {
-    // it('should handle a true case', () => {
-    //     let xs = [1, 2, 3, 4];
-    //     let result = chain(xs).all(x => x < 5);
+    let evenOrOdd = x => x % 2 === 0 ? 'even' : 'odd';
 
-    //     assert.isTrue(result);
-    // });
+    it('should handle an array', () => {
+        let xs = [1, 1, 3, 3, 3, 3];
+        let result = chain(xs).countBy(x => x);
 
-    // it('should handle a false case', () => {
-    //     let xs = [1, 2, 3, 4];
-    //     let result = chain(xs).all(x => x < 4);
+        assert.deepEqual(result, {
+            1: 2,
+            3: 4
+        });
+    });
 
-    //     assert.isFalse(result);
-    // });
+    it('should handle a string', () => {
+        let xs = 'hello world';
+        let result = chain(xs).countBy(x => x);
 
-    // it('should cast to true', () => {
-    //     let xs = [1, 2, 3, 4];
-    //     let result = chain(xs).all(x => x);
+        assert.deepEqual(result, {
+            h: 1,
+            e: 1,
+            l: 3,
+            o: 2,
+            w: 1,
+            r: 1,
+            d: 1,
+            ' ': 1
+        });
+    });
 
-    //     assert.equal(result, true);
-    // });
+    it('should handle a set', () => {
+        let xs = new Set([1, 1, 1, 2, 2, 3, 4, 4, 4]);
+        let result = chain(xs).countBy(evenOrOdd);
 
-    // it('should cast to false', () => {
-    //     let xs = [0, 0, 0, 0];
-    //     let result = chain(xs).all(x => x);
+        assert.deepEqual(result, {
+            even: 2,
+            odd: 2
+        });
+    });
 
-    //     assert.equal(result, false);
-    // });
+    it('should handle a map', () => {
+        let xs = new Map([
+            [1, 1],
+            [2, 2],
+            [3, '3'],
+            [4, 'four'],
+            ['five', 5]
+        ]);
+        let result = chain(xs).countBy(
+            x => x[0] === x[1] ? 'keyIsValue' : 'keyIsNotValue'
+        );
+
+        assert.deepEqual(result, {
+            keyIsValue: 2,
+            keyIsNotValue: 3
+        });
+    });
 
     it('should work unchained', () => {
         let xs = [2, 3, 4, 5, 6];
-        let result = countBy(xs, x => x % 2 === 0 ? 'even' : 'odd');
+        let result = countBy(xs, evenOrOdd);
 
         assert.deepEqual(result, {
             even: 3,
