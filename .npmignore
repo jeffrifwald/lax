@@ -2,8 +2,6 @@ src/
 test/
 TODO
 .DS_Store
-.coverage
 .travis.yml
-.istanbul.yml
 .jshintrc
 make.js
