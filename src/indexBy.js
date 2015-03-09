@@ -1,6 +1,6 @@
-function countBy(xs, predicate, thisArg) {
+function indexBy(xs, predicate, thisArg) {
     let i = 0;
-    let counts = {};
+    let indices = {};
     let fn;
 
     if (typeof predicate === 'string') {
@@ -10,14 +10,12 @@ function countBy(xs, predicate, thisArg) {
     }
 
     for (let x of xs) {
-        let key = fn(x, i, xs);
-
-        counts[key] = counts[key] ? counts[key] + 1 : 1;
+        indices[fn(x, i, xs)] = x;
 
         i += 1;
     }
 
-    return counts;
+    return indices;
 }
 
-export default countBy;
+export default indexBy;

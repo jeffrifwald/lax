@@ -17,8 +17,10 @@ import findWhere from './findWhere';
 import forEach from './forEach';
 import enumerate from './enumerate';
 import get from './get';
+import groupBy from './groupBy';
 import head from './head';
 import includes from './includes';
+import indexBy from './indexBy';
 import indexOf from './indexOf';
 import initial from './initial';
 import last from './last';
@@ -83,8 +85,10 @@ function chain(xs) {
         findIndex: (...args) => findIndex(xs, ...args),
         findWhere: (...args) => findWhere(xs, ...args),
         get: (...args) => get(xs, ...args),
+        groupBy: (...args) => groupBy(xs, ...args),
         head: () => head(xs),
         includes: (...args) => includes(xs, ...args),
+        indexBy: (...args) => indexBy(xs, ...args),
         indexOf: (...args) => indexOf(xs, ...args),
         last: () => last(xs),
         none: (...args) => none(xs, ...args),

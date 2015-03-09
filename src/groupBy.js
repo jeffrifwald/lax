@@ -1,6 +1,6 @@
-function countBy(xs, predicate, thisArg) {
+function groupBy(xs, predicate, thisArg) {
     let i = 0;
-    let counts = {};
+    let groups = {};
     let fn;
 
     if (typeof predicate === 'string') {
@@ -12,12 +12,16 @@ function countBy(xs, predicate, thisArg) {
     for (let x of xs) {
         let key = fn(x, i, xs);
 
-        counts[key] = counts[key] ? counts[key] + 1 : 1;
+        if (groups[key]) {
+            groups[key].push(x);
+        } else {
+            groups[key] = [x];
+        }
 
         i += 1;
     }
 
-    return counts;
+    return groups;
 }
 
-export default countBy;
+export default groupBy;
