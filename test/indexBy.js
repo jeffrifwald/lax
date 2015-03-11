@@ -92,13 +92,13 @@ describe('indexBy', () => {
         let indices = [];
         let arrays = [];
         let thisArgs = [];
-        let result = chain(xs).indexBy(function(x, i, xs) {
-            values.push(x);
+        let result = chain(xs).indexBy(function(y, i, ys) {
+            values.push(y);
             indices.push(i);
-            arrays.push(xs);
+            arrays.push(ys);
             thisArgs.push(this);
 
-            return x % 2 === 0 ? 'even' : 'odd';
+            return y % 2 === 0 ? 'even' : 'odd';
         }, thisArg);
 
         assert.deepEqual(result, {

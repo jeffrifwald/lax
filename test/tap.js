@@ -34,10 +34,10 @@ describe('tap', () => {
         let indices = [];
         let arrays = [];
         let thisArgs = [];
-        let result = chain(xs).tap(function(x, i, xs) {
-            values.push(x);
+        let result = chain(xs).tap(function(y, i, ys) {
+            values.push(y);
             indices.push(i);
-            arrays.push(xs);
+            arrays.push(ys);
             thisArgs.push(this);
         }, thisArg);
 

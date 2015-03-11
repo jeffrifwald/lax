@@ -47,13 +47,13 @@ describe('none', () => {
         let indices = [];
         let arrays = [];
         let thisArgs = [];
-        let result = chain(xs).none(function(x, i, xs) {
-            values.push(x);
+        let result = chain(xs).none(function(y, i, ys) {
+            values.push(y);
             indices.push(i);
-            arrays.push(xs);
+            arrays.push(ys);
             thisArgs.push(this);
 
-            return x > 5;
+            return y > 5;
         }, thisArg);
 
         assert.isTrue(result);

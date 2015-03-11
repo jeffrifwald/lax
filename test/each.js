@@ -73,10 +73,10 @@ describe('each', () => {
         let arrays = [];
         let thisArgs = [];
 
-        chain(xs).each(function(x, i, xs) {
-            values.push(x);
+        chain(xs).each(function(y, i, ys) {
+            values.push(y);
             indices.push(i);
-            arrays.push(xs);
+            arrays.push(ys);
             thisArgs.push(this);
         }, thisArg);
 

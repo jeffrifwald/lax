@@ -42,13 +42,13 @@ describe('thru', () => {
         let indices = [];
         let arrays = [];
         let thisArgs = [];
-        let result = chain(xs).thru(function(x, i, xs) {
-            values.push(x);
+        let result = chain(xs).thru(function(y, i, ys) {
+            values.push(y);
             indices.push(i);
-            arrays.push(xs);
+            arrays.push(ys);
             thisArgs.push(this);
 
-            return x * x;
+            return y * y;
         }, thisArg);
 
         assert.deepEqual(values, []);

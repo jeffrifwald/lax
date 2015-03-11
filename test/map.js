@@ -47,13 +47,13 @@ describe('map', () => {
         let indices = [];
         let arrays = [];
         let thisArgs = [];
-        let result = chain(xs).map(function(x, i, xs) {
-            values.push(x);
+        let result = chain(xs).map(function(y, i, ys) {
+            values.push(y);
             indices.push(i);
-            arrays.push(xs);
+            arrays.push(ys);
             thisArgs.push(this);
 
-            return x + 1;
+            return y + 1;
         }, thisArg);
 
         assert.deepEqual(values, []);

@@ -65,7 +65,7 @@ export default {
     findWhere,
     first,
     forEach,
-    get,
+    get: get,
     groupBy,
     head,
     includes,

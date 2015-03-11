@@ -46,13 +46,13 @@ describe('some', () => {
         let indices = [];
         let arrays = [];
         let thisArgs = [];
-        let result = chain(xs).some(function(x, i, xs) {
-            values.push(x);
+        let result = chain(xs).some(function(y, i, ys) {
+            values.push(y);
             indices.push(i);
-            arrays.push(xs);
+            arrays.push(ys);
             thisArgs.push(this);
 
-            return x > 3;
+            return y > 3;
         }, thisArg);
 
         assert.deepEqual(result, true);

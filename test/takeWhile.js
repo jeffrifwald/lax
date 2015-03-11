@@ -47,13 +47,13 @@ describe('takeWhile', () => {
         let indices = [];
         let arrays = [];
         let thisArgs = [];
-        let result = chain(xs).takeWhile(function(x, i, xs) {
-            values.push(x);
+        let result = chain(xs).takeWhile(function(y, i, ys) {
+            values.push(y);
             indices.push(i);
-            arrays.push(xs);
+            arrays.push(ys);
             thisArgs.push(this);
 
-            return x < 5;
+            return y < 5;
         }, thisArg);
 
         assert.deepEqual(values, []);

@@ -73,10 +73,10 @@ describe('forEach', () => {
         let arrays = [];
         let thisArgs = [];
 
-        chain(xs).forEach(function(x, i, xs) {
-            values.push(x);
+        chain(xs).forEach(function(y, i, ys) {
+            values.push(y);
             indices.push(i);
-            arrays.push(xs);
+            arrays.push(ys);
             thisArgs.push(this);
         }, thisArg);
 
