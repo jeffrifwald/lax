@@ -1,7 +1,3 @@
-BABEL_CMD = node_modules/.bin/babel-node
-MOCHA_CMD = node_modules/.bin/_mocha
-LINT_CMD = node_modules/.bin/eslint
-
 publish:
 	cp src/*.js .
 
@@ -9,7 +5,11 @@ clean:
 	rm -rf .coverage *.js
 
 lint:
-	$(LINT_CMD) src test
+	node_modules/.bin/eslint src test
 
-unit:
-	$(BABEL_CMD) $(MOCHA_CMD) --recursive test
+cover:
+	node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha --recursive test
+	node_modules/.bin/babel-istanbul check-coverage .coverage/coverage.json
+
+coveralls:
+	cat .coverage/lcov.info | node_modules/.bin/coveralls

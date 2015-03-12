@@ -126,7 +126,7 @@ function chain(xs) {
         },
 
         //iterator
-        *[Symbol.iterator]() {
+        [Symbol.iterator]: function*() {
             for (let x of xs) {
                 yield x;
             }

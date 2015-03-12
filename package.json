@@ -23,9 +23,10 @@
   "license": "MIT",
   "devDependencies": {
     "babel": "^4.4.3",
+    "babel-istanbul": "jmcriffey/babel-istanbul",
     "chai": "^2.0.0",
+    "coveralls": "^2.11.2",
     "eslint": "^0.16.2",
-    "mocha": "^2.1.0",
-    "rimraf": "^2.2.8"
+    "mocha": "^2.1.0"
   }
 }

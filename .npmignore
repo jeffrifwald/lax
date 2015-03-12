@@ -3,6 +3,6 @@ test/
 TODO
 .DS_Store
 .travis.yml
-.jshintrc
-.jscsrc
-make.js
+.eslintsrc
+.istanbul.yml
+Makefile
