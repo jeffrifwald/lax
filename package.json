@@ -14,7 +14,7 @@
   "scripts": {
     "prepublish": "make publish",
     "postpublish": "make clean",
-    "test": "make lint && make unit"
+    "test": "make lint && make cover"
   },
   "keywords": [
     "lazy"
