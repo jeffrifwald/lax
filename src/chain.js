@@ -1,5 +1,6 @@
 import all from './all';
 import any from './any';
+import atLeastSize from './atLeastSize';
 import chunk from './chunk';
 import compact from './compact';
 import concat from './concat';
@@ -14,6 +15,8 @@ import first from './first';
 import find from './find';
 import findIndex from './findIndex';
 import findWhere from './findWhere';
+import flatten from './flatten';
+import flattenDeep from './flattenDeep';
 import forEach from './forEach';
 import enumerate from './enumerate';
 import get from './get';
@@ -57,6 +60,8 @@ function chain(xs) {
         each: (...args) => chain(each(xs, ...args)),
         enumerate: () => chain(enumerate(xs)),
         filter: (...args) => chain(filter(xs, ...args)),
+        flatten: (...args) => chain(flatten(xs, ...args)),
+        flattenDeep: () => chain(flattenDeep(xs)),
         forEach: (...args) => chain(forEach(xs, ...args)),
         initial: () => chain(initial(xs)),
         map: (...args) => chain(map(xs, ...args)),
@@ -77,6 +82,7 @@ function chain(xs) {
         //returns a value
         all: (...args) => all(xs, ...args),
         any: (...args) => any(xs, ...args),
+        atLeastSize: (...args) => atLeastSize(xs, ...args),
         contains: (...args) => contains(xs, ...args),
         countBy: (...args) => countBy(xs, ...args),
         every: (...args) => every(xs, ...args),
@@ -98,13 +104,7 @@ function chain(xs) {
 
         //iterates and returns
         toArray() {
-            let arr = [];
-
-            for (let x of xs) {
-                arr.push(x);
-            }
-
-            return arr;
+            return Array.from(xs);
         },
 
         toMap() {

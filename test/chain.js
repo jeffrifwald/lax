@@ -9,7 +9,7 @@ describe('chain', () => {
         fs.readdir('./src', (err, files) => {
             let result = (
                 chain(files)
-                .filter(x => x.endsWith('.js') && x !== 'index.js')
+                .filter(x => x.endsWith('.js') && x !== 'lax.js')
                 .map(x => x.replace('.js', ''))
                 .toArray()
             );

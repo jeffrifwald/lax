@@ -14,7 +14,7 @@
   "scripts": {
     "prepublish": "make publish",
     "postpublish": "make clean",
-    "test": "make lint && make cover"
+    "test": "make run_test"
   },
   "keywords": [
     "lazy"
@@ -23,7 +23,7 @@
   "license": "MIT",
   "devDependencies": {
     "babel": "^4.4.3",
-    "babel-istanbul": "jmcriffey/babel-istanbul",
+    "babel-istanbul": "^0.0.2",
     "chai": "^2.0.0",
     "coveralls": "^2.11.2",
     "eslint": "^0.16.2",
