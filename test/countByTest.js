@@ -1,45 +1,45 @@
 import {assert} from 'chai';
 
 import chain from '../src/chain';
-import indexBy from '../src/indexBy';
+import countBy from '../src/countBy';
 
 
-describe('indexBy', () => {
+describe('countBy', () => {
     let evenOrOdd = x => x % 2 === 0 ? 'even' : 'odd';
 
     it('should handle an array', () => {
         let xs = [1, 1, 3, 3, 3, 3];
-        let result = chain(xs).indexBy(x => x);
+        let result = chain(xs).countBy(x => x);
 
         assert.deepEqual(result, {
-            1: 1,
-            3: 3
+            1: 2,
+            3: 4
         });
     });
 
     it('should handle a string', () => {
         let xs = 'hello world';
-        let result = chain(xs).indexBy(x => x);
+        let result = chain(xs).countBy(x => x);
 
         assert.deepEqual(result, {
-            h: 'h',
-            e: 'e',
-            l: 'l',
-            o: 'o',
-            w: 'w',
-            r: 'r',
-            d: 'd',
-            ' ': ' '
+            h: 1,
+            e: 1,
+            l: 3,
+            o: 2,
+            w: 1,
+            r: 1,
+            d: 1,
+            ' ': 1
         });
     });
 
     it('should handle a set', () => {
-        let xs = new Set([2, 2, 3, 4, 4, 4, 1]);
-        let result = chain(xs).indexBy(evenOrOdd);
+        let xs = new Set([1, 1, 1, 2, 2, 3, 4, 4, 4]);
+        let result = chain(xs).countBy(evenOrOdd);
 
         assert.deepEqual(result, {
-            even: 4,
-            odd: 1
+            even: 2,
+            odd: 2
         });
     });
 
@@ -51,37 +51,37 @@ describe('indexBy', () => {
             [4, 'four'],
             ['five', 5]
         ]);
-        let result = chain(xs).indexBy(
+        let result = chain(xs).countBy(
             x => x[0] === x[1] ? 'keyIsValue' : 'keyIsNotValue'
         );
 
         assert.deepEqual(result, {
-            keyIsValue: [2, 2],
-            keyIsNotValue: ['five', 5]
+            keyIsValue: 2,
+            keyIsNotValue: 3
         });
     });
 
-    it('should handle a string predicate', () => {
+    it('should handle a string iteratee', () => {
         let xs = [
             {name: 'John', id: 1},
             {name: 'John', id: 2},
             {name: 'Jane', id: 3}
         ];
-        let result = chain(xs).indexBy('name');
+        let result = chain(xs).countBy('name');
 
         assert.deepEqual(result, {
-            John: {name: 'John', id: 2},
-            Jane: {name: 'Jane', id: 3}
+            John: 2,
+            Jane: 1
         });
     });
 
     it('should work unchained', () => {
         let xs = [2, 3, 4, 5, 6];
-        let result = indexBy(xs, evenOrOdd);
+        let result = countBy(xs, evenOrOdd);
 
         assert.deepEqual(result, {
-            even: 6,
-            odd: 5
+            even: 3,
+            odd: 2
         });
     });
 
@@ -92,7 +92,7 @@ describe('indexBy', () => {
         let indices = [];
         let arrays = [];
         let thisArgs = [];
-        let result = chain(xs).indexBy(function(y, i, ys) {
+        let result = chain(xs).countBy(function(y, i, ys) {
             values.push(y);
             indices.push(i);
             arrays.push(ys);
@@ -102,8 +102,8 @@ describe('indexBy', () => {
         }, thisArg);
 
         assert.deepEqual(result, {
-            even: 4,
-            odd: 5
+            even: 2,
+            odd: 3
         });
         assert.deepEqual(values, [1, 2, 3, 4, 5]);
         assert.deepEqual(indices, [0, 1, 2, 3, 4]);

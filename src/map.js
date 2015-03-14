@@ -1,5 +1,8 @@
-function *map(xs, predicate, thisArg) {
-    let fn = thisArg ? predicate.bind(thisArg) : predicate;
+import identity from './identity';
+
+
+function *map(xs, iteratee=identity, thisArg=undefined) {
+    let fn = thisArg ? iteratee.bind(thisArg) : iteratee;
     let i = 0;
 
     for (let x of xs) {

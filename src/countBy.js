@@ -1,12 +1,12 @@
-function countBy(xs, predicate, thisArg) {
+function countBy(xs, iteratee, thisArg) {
     let i = 0;
     let counts = {};
     let fn;
 
-    if (typeof predicate === 'string') {
-        fn = x => x[predicate];
+    if (typeof iteratee === 'string') {
+        fn = x => x[iteratee];
     } else {
-        fn = thisArg ? predicate.bind(thisArg) : predicate;
+        fn = thisArg ? iteratee.bind(thisArg) : iteratee;
     }
 
     for (let x of xs) {

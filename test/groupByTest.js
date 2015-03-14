@@ -61,7 +61,7 @@ describe('groupBy', () => {
         });
     });
 
-    it('should handle a string predicate', () => {
+    it('should handle a string iteratee', () => {
         let xs = [
             {name: 'John', id: 1},
             {name: 'John', id: 2},

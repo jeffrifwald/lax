@@ -1,5 +1,5 @@
-function *reject(xs, predicate, thisArg) {
-    let fn = thisArg ? predicate.bind(thisArg) : predicate;
+function *reject(xs, iteratee, thisArg) {
+    let fn = thisArg ? iteratee.bind(thisArg) : iteratee;
     let i = 0;
 
     for (let x of xs) {

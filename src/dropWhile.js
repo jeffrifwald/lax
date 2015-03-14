@@ -1,6 +1,6 @@
-function *dropWhile(xs, predicate, thisArg) {
+function *dropWhile(xs, iteratee, thisArg) {
     let drop = true;
-    let fn = thisArg ? predicate.bind(thisArg) : predicate;
+    let fn = thisArg ? iteratee.bind(thisArg) : iteratee;
     let i = 0;
 
     for (let x of xs) {

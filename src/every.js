@@ -1,6 +1,6 @@
-function every(xs, predicate, thisArg) {
+function every(xs, iteratee, thisArg) {
     let result = true;
-    let fn = thisArg ? predicate.bind(thisArg) : predicate;
+    let fn = thisArg ? iteratee.bind(thisArg) : iteratee;
     let i = 0;
 
     for (let x of xs) {

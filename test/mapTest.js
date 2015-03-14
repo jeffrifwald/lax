@@ -33,6 +33,13 @@ describe('map', () => {
         assert.deepEqual(result, [1, 4, 9, 16]);
     });
 
+    it('should work without a iteratee', () => {
+        let xs = [1, 2, 3, 4];
+        let result = chain(xs).map().toArray();
+
+        assert.deepEqual(result, xs);
+    });
+
     it('should work unchained', () => {
         let xs = [1, 2, 3, 4];
         let result = map(xs, x => x * x);

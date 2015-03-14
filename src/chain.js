@@ -23,11 +23,14 @@ import get from './get';
 import groupBy from './groupBy';
 import head from './head';
 import includes from './includes';
+import identity from './identity';
 import indexBy from './indexBy';
 import indexOf from './indexOf';
 import initial from './initial';
 import last from './last';
 import map from './map';
+import max from './max';
+import min from './min';
 import none from './none';
 import nth from './nth';
 import pluck from './pluck';
@@ -45,6 +48,7 @@ import tap from './tap';
 import thru from './thru';
 import without from './without';
 import where from './where';
+import zip from './zip';
 
 
 function chain(xs) {
@@ -78,6 +82,7 @@ function chain(xs) {
         thru: (...args) => chain(thru(xs, ...args)),
         without: (...args) => chain(without(xs, ...args)),
         where: (...args) => chain(where(xs, ...args)),
+        zip: (...args) => chain(zip(xs, ...args)),
 
         //returns a value
         all: (...args) => all(xs, ...args),
@@ -94,9 +99,12 @@ function chain(xs) {
         groupBy: (...args) => groupBy(xs, ...args),
         head: () => head(xs),
         includes: (...args) => includes(xs, ...args),
+        identity: (...args) => identity(...args),
         indexBy: (...args) => indexBy(xs, ...args),
         indexOf: (...args) => indexOf(xs, ...args),
         last: () => last(xs),
+        max: (...args) => max(xs, ...args),
+        min: (...args) => min(xs, ...args),
         none: (...args) => none(xs, ...args),
         nth: (...args) => nth(xs, ...args),
         size: () => size(xs),

@@ -24,11 +24,14 @@ import get from './get';
 import groupBy from './groupBy';
 import head from './head';
 import includes from './includes';
+import identity from './identity';
 import indexBy from './indexBy';
 import indexOf from './indexOf';
 import initial from './initial';
 import last from './last';
 import map from './map';
+import max from './max';
+import min from './min';
 import none from './none';
 import nth from './nth';
 import pluck from './pluck';
@@ -46,6 +49,7 @@ import tap from './tap';
 import thru from './thru';
 import where from './where';
 import without from './without';
+import zip from './zip';
 
 
 export default {
@@ -75,11 +79,14 @@ export default {
     groupBy,
     head,
     includes,
+    identity,
     indexBy,
     indexOf,
     initial,
     last,
     map,
+    max,
+    min,
     none,
     nth,
     pluck,
@@ -96,5 +103,6 @@ export default {
     tap,
     thru,
     where,
-    without
+    without,
+    zip
 };

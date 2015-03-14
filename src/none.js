@@ -1,8 +1,8 @@
 import some from './some';
 
 
-function none(xs, predicate, thisArg) {
-    return !some(xs, predicate, thisArg);
+function none(xs, iteratee, thisArg) {
+    return !some(xs, iteratee, thisArg);
 }
 
 export default none;

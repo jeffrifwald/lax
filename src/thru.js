@@ -1,5 +1,5 @@
-function *thru(xs, predicate, thisArg) {
-    let fn = thisArg ? predicate.bind(thisArg) : predicate;
+function *thru(xs, iteratee, thisArg) {
+    let fn = thisArg ? iteratee.bind(thisArg) : iteratee;
     let i = 0;
 
     for (let x of xs) {
