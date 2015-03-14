@@ -1,15 +1,18 @@
+import flattenDeep from './flattenDeep';
+
+
 function *flatten(xs, deep=false) {
-    for (let x of xs) {
-        if (x[Symbol.iterator]) {
-            if (deep) {
-                yield *flatten(x, deep);
-            } else {
+    if (deep) {
+        yield *flattenDeep(xs);
+    } else {
+        for (let x of xs) {
+            if (x && x[Symbol.iterator]) {
                 for (let y of x) {
                     yield y;
                 }
+            } else {
+                yield x;
             }
-        } else {
-            yield x;
         }
     }
 }

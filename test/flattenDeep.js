@@ -11,6 +11,12 @@ describe('flattenDeep', () => {
         assert.deepEqual(result.toArray(), [1, 2, 3, 4, 5]);
     });
 
+    it('should handle strings', () => {
+        let result = chain(['h', [['e', 'l']], [['l']], 'o']).flattenDeep();
+
+        assert.equal(result.toString(), 'hello');
+    });
+
     it('should handle sets', () => {
         let result = chain([
             new Set([1, [[2]], [[3], 4]]),
