@@ -46,6 +46,7 @@ import take from './take';
 import takeWhile from './takeWhile';
 import tap from './tap';
 import thru from './thru';
+import uniq from './uniq';
 import without from './without';
 import where from './where';
 import zip from './zip';
@@ -80,6 +81,7 @@ function chain(xs) {
         take: (...args) => chain(take(xs, ...args)),
         takeWhile: (...args) => chain(takeWhile(xs, ...args)),
         thru: (...args) => chain(thru(xs, ...args)),
+        uniq: () => chain(uniq(xs)),
         without: (...args) => chain(without(xs, ...args)),
         where: (...args) => chain(where(xs, ...args)),
         zip: (...args) => chain(zip(xs, ...args)),

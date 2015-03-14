@@ -2,7 +2,7 @@
   "name": "lax",
   "version": "0.0.36",
   "description": "A modular JS library for lazy data manipulation.",
-  "main": "index.js",
+  "main": "lax.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/jmcriffey/lax.git"

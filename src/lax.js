@@ -47,6 +47,7 @@ import take from './take';
 import takeWhile from './takeWhile';
 import tap from './tap';
 import thru from './thru';
+import uniq from './uniq';
 import where from './where';
 import without from './without';
 import zip from './zip';
@@ -102,6 +103,7 @@ export default {
     takeWhile,
     tap,
     thru,
+    uniq,
     where,
     without,
     zip
