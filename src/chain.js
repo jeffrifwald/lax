@@ -55,7 +55,13 @@ import without from './without';
 import where from './where';
 import zip from './zip';
 
-
+/**
+ * @function chain
+ * Enables method chaining for the given iterable.
+ * Keep in mind while this is convenient, sacrifices modularity.
+ * @param {*} xs - The iterable to chain.
+ * @returns {Object} - An interface object that exposes functions to call on xs.
+ */
 function chain(xs) {
     return {
 

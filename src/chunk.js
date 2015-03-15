@@ -1,3 +1,11 @@
+/**
+ * @generator chunk
+ * Yields n chunks from the given iterable.
+ * The last chunk contains any extra elements.
+ * @param {*} xs - The iterable to chunk.
+ * @param {Number} n - The number of chunks to create.
+ * @returns {*} - One or more chunks of n size or less.
+ */
 function *chunk(xs, n) {
     let result = [];
 

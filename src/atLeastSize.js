@@ -1,3 +1,10 @@
+/**
+ * @function atLeastSize
+ * Checks if the iterable has at least n elements.
+ * @param {*} xs - The iterable to check.
+ * @param {Number} n - The number of elements to check.
+ * @returns {Boolean} - True if the iterable has at least n elements.
+ */
 function atLeastSize(xs, n=0) {
     let iter = xs[Symbol.iterator]();
     let x = iter.next();

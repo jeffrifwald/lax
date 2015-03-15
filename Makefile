@@ -1,6 +1,3 @@
-publish:
-	cp src/*.js .
-
 clean:
 	rm -rf .coverage *.js
 
@@ -13,6 +10,9 @@ coveralls:
 
 lint:
 	node_modules/.bin/eslint src test
+
+publish:
+	cp src/*.js .
 
 run_test:
 	make clean && make lint && make cover
