@@ -1,5 +1,4 @@
 /**
- * @generator compact
  * Yields the truthy values from the iterable.
  * @param {*} xs - The iterable to compact.
  * @returns {*} - All truthy values from the iterable.

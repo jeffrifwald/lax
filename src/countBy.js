@@ -1,10 +1,9 @@
 /**
- * @function countBy
  * Creates an object mapping the iterable's values to counts.
  * @param {*} xs - The iterable to count.
- * @param {Function, String} iteratee -
+ * @param {Function|String} iteratee -
  * The function or property for generating count keys.
- * @param {Function, String} thisArg -
+ * @param {Function|String} thisArg -
  * The this binding for the iteratee function.
  * @returns {Object} - An object containing values and counts.
  */

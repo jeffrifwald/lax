@@ -1,5 +1,4 @@
 /**
- * @generator chunk
  * Yields n chunks from the given iterable.
  * The last chunk contains any extra elements.
  * @param {*} xs - The iterable to chunk.

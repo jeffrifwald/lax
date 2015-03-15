@@ -1,5 +1,4 @@
 /**
- * @function atLeastSize
  * Checks if the iterable has at least n elements.
  * @param {*} xs - The iterable to check.
  * @param {Number} n - The number of elements to check.
