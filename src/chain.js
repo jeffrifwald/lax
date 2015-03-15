@@ -27,6 +27,7 @@ import identity from './identity';
 import indexBy from './indexBy';
 import indexOf from './indexOf';
 import initial from './initial';
+import invoke from './invoke';
 import last from './last';
 import map from './map';
 import max from './max';
@@ -39,6 +40,7 @@ import reduce from './reduce';
 import reject from './reject';
 import repeat from './repeat';
 import rest from './rest';
+import sample from './sample';
 import size from './size';
 import slice from './slice';
 import some from './some';
@@ -71,12 +73,14 @@ function chain(xs) {
         flattenDeep: () => chain(flattenDeep(xs)),
         forEach: (...args) => chain(forEach(xs, ...args)),
         initial: () => chain(initial(xs)),
+        invoke: (...args) => chain(invoke(xs, ...args)),
         map: (...args) => chain(map(xs, ...args)),
         pluck: (...args) => chain(pluck(xs, ...args)),
         range: (...args) => chain(range(...args)),
         repeat: (...args) => chain(repeat(xs, ...args)),
         reject: (...args) => chain(reject(xs, ...args)),
         rest: (...args) => chain(rest(xs, ...args)),
+        sample: (...args) => chain(sample(xs, ...args)),
         slice: (...args) => chain(slice(xs, ...args)),
         tap: (...args) => chain(tap(xs, ...args)),
         tail: (...args) => chain(tail(xs, ...args)),
