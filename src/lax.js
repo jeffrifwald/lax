@@ -29,6 +29,7 @@ import indexBy from './indexBy';
 import indexOf from './indexOf';
 import initial from './initial';
 import invoke from './invoke';
+import isEmpty from './isEmpty';
 import last from './last';
 import map from './map';
 import max from './max';
@@ -41,7 +42,6 @@ import reduce from './reduce';
 import reject from './reject';
 import repeat from './repeat';
 import rest from './rest';
-import sample from './sample';
 import size from './size';
 import slice from './slice';
 import some from './some';
@@ -89,6 +89,7 @@ export default {
     indexOf,
     initial,
     invoke,
+    isEmpty,
     last,
     map,
     max,
@@ -101,7 +102,6 @@ export default {
     reject,
     repeat,
     rest,
-    sample,
     size,
     slice,
     some,

@@ -28,6 +28,7 @@ import indexBy from './indexBy';
 import indexOf from './indexOf';
 import initial from './initial';
 import invoke from './invoke';
+import isEmpty from './isEmpty';
 import last from './last';
 import map from './map';
 import max from './max';
@@ -40,7 +41,6 @@ import reduce from './reduce';
 import reject from './reject';
 import repeat from './repeat';
 import rest from './rest';
-import sample from './sample';
 import size from './size';
 import slice from './slice';
 import some from './some';
@@ -85,7 +85,6 @@ function chain(xs) {
         repeat: (...args) => chain(repeat(xs, ...args)),
         reject: (...args) => chain(reject(xs, ...args)),
         rest: (...args) => chain(rest(xs, ...args)),
-        sample: (...args) => chain(sample(xs, ...args)),
         slice: (...args) => chain(slice(xs, ...args)),
         tap: (...args) => chain(tap(xs, ...args)),
         tail: (...args) => chain(tail(xs, ...args)),
@@ -116,6 +115,7 @@ function chain(xs) {
         identity: (...args) => identity(...args),
         indexBy: (...args) => indexBy(xs, ...args),
         indexOf: (...args) => indexOf(xs, ...args),
+        isEmpty: () => isEmpty(xs),
         last: () => last(xs),
         max: (...args) => max(xs, ...args),
         min: (...args) => min(xs, ...args),
