@@ -36,6 +36,7 @@ import none from './none';
 import nth from './nth';
 import pluck from './pluck';
 import range from './range';
+import reduce from './reduce';
 import reject from './reject';
 import repeat from './repeat';
 import rest from './rest';
@@ -48,6 +49,7 @@ import takeWhile from './takeWhile';
 import tap from './tap';
 import thru from './thru';
 import uniq from './uniq';
+import unique from './unique';
 import where from './where';
 import without from './without';
 import zip from './zip';
@@ -92,6 +94,7 @@ export default {
     nth,
     pluck,
     range,
+    reduce,
     reject,
     repeat,
     rest,
@@ -104,6 +107,7 @@ export default {
     tap,
     thru,
     uniq,
+    unique,
     where,
     without,
     zip

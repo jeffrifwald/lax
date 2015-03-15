@@ -1,25 +1,25 @@
 import {assert} from 'chai';
 
 import chain from '../src/chain';
-import uniq from '../src/uniq';
+import unique from '../src/unique';
 
 
-describe('uniq', () => {
+describe('unique', () => {
     it('should handle an array', () => {
         let xs = [1, 1, 1, 2, 3, 1, 4, 3, 4];
 
-        assert.deepEqual(chain(xs).uniq().toArray(), [1, 2, 3, 4]);
+        assert.deepEqual(chain(xs).unique().toArray(), [1, 2, 3, 4]);
     });
 
     it('should handle a string', () => {
         let xs = 'hello world';
 
-        assert.deepEqual(chain(xs).uniq().toString(), 'helo wrd');
+        assert.deepEqual(chain(xs).unique().toString(), 'helo wrd');
     });
 
     it('should work unchained', () => {
         let xs = [1, 1, 1, 2, 3, 1, 4, 3, 4];
 
-        assert.deepEqual(Array.from(uniq(xs)), [1, 2, 3, 4]);
+        assert.deepEqual(Array.from(unique(xs)), [1, 2, 3, 4]);
     });
 });

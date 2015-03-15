@@ -35,6 +35,7 @@ import none from './none';
 import nth from './nth';
 import pluck from './pluck';
 import range from './range';
+import reduce from './reduce';
 import reject from './reject';
 import repeat from './repeat';
 import rest from './rest';
@@ -47,6 +48,7 @@ import takeWhile from './takeWhile';
 import tap from './tap';
 import thru from './thru';
 import uniq from './uniq';
+import unique from './unique';
 import without from './without';
 import where from './where';
 import zip from './zip';
@@ -82,6 +84,7 @@ function chain(xs) {
         takeWhile: (...args) => chain(takeWhile(xs, ...args)),
         thru: (...args) => chain(thru(xs, ...args)),
         uniq: () => chain(uniq(xs)),
+        unique: () => chain(unique(xs)),
         without: (...args) => chain(without(xs, ...args)),
         where: (...args) => chain(where(xs, ...args)),
         zip: (...args) => chain(zip(xs, ...args)),
@@ -109,6 +112,7 @@ function chain(xs) {
         min: (...args) => min(xs, ...args),
         none: (...args) => none(xs, ...args),
         nth: (...args) => nth(xs, ...args),
+        reduce: (...args) => reduce(xs, ...args),
         size: () => size(xs),
         some: (...args) => some(xs, ...args),
 
