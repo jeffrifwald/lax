@@ -1,13 +1,16 @@
 function some(xs, iteratee, thisArg) {
-    let iter = xs[Symbol.iterator]();
-    let result = false;
     let fn = thisArg ? iteratee.bind(thisArg) : iteratee;
+    let i = 0;
 
-    for (let i = 0, x = iter.next(); !x.done && !result; x = iter.next(), i++) {
-        result = fn(x.value, i, xs);
+    for (let x of xs) {
+        if (fn(x, i, xs)) {
+            return true;
+        }
+
+        i += 1;
     }
 
-    return result;
+    return false;
 }
 
 export default some;

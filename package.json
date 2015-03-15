@@ -1,6 +1,6 @@
 {
   "name": "lax",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "description": "A modular JS library for lazy data manipulation.",
   "main": "lax.js",
   "repository": {
@@ -17,7 +17,9 @@
     "test": "make run_test"
   },
   "keywords": [
-    "lazy"
+    "lazy",
+    "functional",
+    "util"
   ],
   "author": "Jeff McRiffey",
   "license": "MIT",
