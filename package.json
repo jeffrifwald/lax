@@ -1,6 +1,6 @@
 {
   "name": "lax",
-  "version": "0.0.41",
+  "version": "0.0.40",
   "description": "A modular JS library for lazy data manipulation.",
   "main": "lax.js",
   "repository": {
